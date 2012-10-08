@@ -13,452 +13,464 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\bin\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-09-27T18:52:59.936</Modified>
+      <Modified>2012-10-08T14:38:11.759</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\bin\Debug\appMobiFacebookTemplate1.exe">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\bin\Debug\appMobiFacebookTemplate1.exe">
       <PackagePath>appMobiFacebookTemplate1.exe</PackagePath>
-      <Modified>2012-09-28T12:59:16.593</Modified>
+      <Modified>2012-10-08T14:45:08.253</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\bin\Debug\appMobiFacebookTemplate1.pdb">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\bin\Debug\appMobiFacebookTemplate1.pdb">
       <PackagePath>appMobiFacebookTemplate1.pdb</PackagePath>
-      <Modified>2012-09-28T12:59:16.549</Modified>
+      <Modified>2012-10-08T14:45:08.197</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\Assets\Logo.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\facebook-windows8-sample\src\packages\Facebook.6.0.22\lib\WinRT\Facebook.dll">
+      <PackagePath>Facebook.dll</PackagePath>
+      <Modified>2012-09-27T12:41:36.919</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\facebook-windows8-sample\src\packages\Facebook.6.0.22\lib\WinRT\Facebook.xml">
+      <PackagePath>Facebook.xml</PackagePath>
+      <Modified>2012-09-27T12:41:36.925</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2012-09-26T12:49:14.070</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\Assets\SmallLogo.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\Assets\SmallLogo.png">
       <PackagePath>Assets\SmallLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2012-09-26T12:49:14.078</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\Assets\SplashScreen.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\Assets\SplashScreen.png">
       <PackagePath>Assets\SplashScreen.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2012-09-26T12:49:14.083</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2012-09-26T12:49:14.088</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\knockout\destroy.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\knockout\destroy.png">
       <PackagePath>html\examples\knockout\destroy.png</PackagePath>
       <Modified>2012-09-26T12:49:14.178</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\knockout\images\nav_icons.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\knockout\images\nav_icons.png">
       <PackagePath>html\examples\knockout\images\nav_icons.png</PackagePath>
       <Modified>2012-09-26T12:49:14.171</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\knockout\images\vert_divider.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\knockout\images\vert_divider.png">
       <PackagePath>html\examples\knockout\images\vert_divider.png</PackagePath>
       <Modified>2012-09-26T12:49:14.175</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\spacehook\images\ajax-loader.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\spacehook\images\ajax-loader.png">
       <PackagePath>html\examples\spacehook\images\ajax-loader.png</PackagePath>
       <Modified>2012-09-26T12:49:14.206</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\spacehook\images\back.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\spacehook\images\back.png">
       <PackagePath>html\examples\spacehook\images\back.png</PackagePath>
       <Modified>2012-09-26T12:49:14.213</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\spacehook\images\badge.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\spacehook\images\badge.png">
       <PackagePath>html\examples\spacehook\images\badge.png</PackagePath>
       <Modified>2012-09-26T12:49:14.216</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\spacehook\images\close.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\spacehook\images\close.png">
       <PackagePath>html\examples\spacehook\images\close.png</PackagePath>
       <Modified>2012-09-26T12:49:14.219</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\spacehook\images\custom_inputs.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\spacehook\images\custom_inputs.png">
       <PackagePath>html\examples\spacehook\images\custom_inputs.png</PackagePath>
       <Modified>2012-09-26T12:49:14.223</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\spacehook\images\listGroup.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\spacehook\images\listGroup.png">
       <PackagePath>html\examples\spacehook\images\listGroup.png</PackagePath>
       <Modified>2012-09-26T12:49:14.226</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\spacehook\images\menu.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\spacehook\images\menu.png">
       <PackagePath>html\examples\spacehook\images\menu.png</PackagePath>
       <Modified>2012-09-26T12:49:14.243</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\spacehook\images\Off-On_Slider.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\spacehook\images\Off-On_Slider.png">
       <PackagePath>html\examples\spacehook\images\Off-On_Slider.png</PackagePath>
       <Modified>2012-09-26T12:49:14.249</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\spacehook\images\stripe_bg.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\spacehook\images\stripe_bg.png">
       <PackagePath>html\examples\spacehook\images\stripe_bg.png</PackagePath>
       <Modified>2012-09-26T12:49:14.253</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\spacehook\images\vert_divider.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\spacehook\images\vert_divider.png">
       <PackagePath>html\examples\spacehook\images\vert_divider.png</PackagePath>
       <Modified>2012-09-26T12:49:14.257</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\todos\destroy.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\todos\destroy.png">
       <PackagePath>html\examples\todos\destroy.png</PackagePath>
       <Modified>2012-09-26T12:49:14.326</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\kitchensink\images\badge.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\kitchensink\images\badge.png">
       <PackagePath>html\kitchensink\images\badge.png</PackagePath>
       <Modified>2012-09-26T12:49:14.349</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\kitchensink\images\splash.png">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\kitchensink\images\splash.png">
       <PackagePath>html\kitchensink\images\splash.png</PackagePath>
       <Modified>2012-09-26T12:49:14.353</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\amfacebook.html">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\amfacebook.html">
       <PackagePath>html\amfacebook.html</PackagePath>
-      <Modified>2012-09-26T12:49:14.546</Modified>
+      <Modified>2012-10-01T13:41:03.263</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\Copy of index.html">
-      <PackagePath>html\Copy of index.html</PackagePath>
-      <Modified>2012-09-26T12:49:14.553</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\defer\index.html">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\defer\index.html">
       <PackagePath>html\defer\index.html</PackagePath>
       <Modified>2012-09-26T12:49:14.163</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\knockout\index.html">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\knockout\index.html">
       <PackagePath>html\examples\knockout\index.html</PackagePath>
       <Modified>2012-09-26T12:49:14.180</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\spacehook\index.html">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\spacehook\index.html">
       <PackagePath>html\examples\spacehook\index.html</PackagePath>
       <Modified>2012-09-26T12:49:14.260</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\starter\index.html">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\starter\index.html">
       <PackagePath>html\examples\starter\index.html</PackagePath>
       <Modified>2012-09-26T12:49:14.311</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\todos\index.html">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\todos\index.html">
       <PackagePath>html\examples\todos\index.html</PackagePath>
       <Modified>2012-09-26T12:49:14.330</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\index.html">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\index.html">
       <PackagePath>html\index.html</PackagePath>
-      <Modified>2012-09-28T13:01:52.776</Modified>
+      <Modified>2012-10-08T14:44:21.765</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\kitchensink\ajax.html">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\kitchensink\ajax.html">
       <PackagePath>html\kitchensink\ajax.html</PackagePath>
       <Modified>2012-09-26T12:49:14.356</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\kitchensink\external.html">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\kitchensink\external.html">
       <PackagePath>html\kitchensink\external.html</PackagePath>
       <Modified>2012-09-26T12:49:14.359</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\kitchensink\json.html">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\kitchensink\json.html">
       <PackagePath>html\kitchensink\json.html</PackagePath>
       <Modified>2012-09-26T12:49:14.386</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\appmobi_local_bootstrap.js">
-      <PackagePath>html\appmobi_local_bootstrap.js</PackagePath>
-      <Modified>2012-09-26T12:49:14.550</Modified>
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\appmobi.js">
+      <PackagePath>html\appmobi.js</PackagePath>
+      <Modified>2012-10-08T14:44:54.797</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\knockout\knockout-2.0.0.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\appmobi_local_bootstrap.js">
+      <PackagePath>html\appmobi_local_bootstrap.js</PackagePath>
+      <Modified>2012-10-08T14:26:15.763</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\knockout\knockout-2.0.0.js">
       <PackagePath>html\examples\knockout\knockout-2.0.0.js</PackagePath>
       <Modified>2012-09-26T12:49:14.189</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\knockout\todo.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\knockout\todo.js">
       <PackagePath>html\examples\knockout\todo.js</PackagePath>
       <Modified>2012-09-26T12:49:14.195</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\starter\js\jq.alphatable.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\starter\js\jq.alphatable.js">
       <PackagePath>html\examples\starter\js\jq.alphatable.js</PackagePath>
       <Modified>2012-09-26T12:49:14.268</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\starter\js\jq.carousel.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\starter\js\jq.carousel.js">
       <PackagePath>html\examples\starter\js\jq.carousel.js</PackagePath>
       <Modified>2012-09-26T12:49:14.271</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\starter\js\jq.drawer.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\starter\js\jq.drawer.js">
       <PackagePath>html\examples\starter\js\jq.drawer.js</PackagePath>
       <Modified>2012-09-26T12:49:14.274</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\starter\js\jq.fx.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\starter\js\jq.fx.js">
       <PackagePath>html\examples\starter\js\jq.fx.js</PackagePath>
       <Modified>2012-09-26T12:49:14.277</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\starter\js\jq.template.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\starter\js\jq.template.js">
       <PackagePath>html\examples\starter\js\jq.template.js</PackagePath>
       <Modified>2012-09-26T12:49:14.281</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\starter\js\jq.ui.min.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\starter\js\jq.ui.min.js">
       <PackagePath>html\examples\starter\js\jq.ui.min.js</PackagePath>
       <Modified>2012-09-26T12:49:14.286</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\starter\touch.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\starter\touch.js">
       <PackagePath>html\examples\starter\touch.js</PackagePath>
       <Modified>2012-09-26T12:49:14.314</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\todos\backbone-localstorage.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\todos\backbone-localstorage.js">
       <PackagePath>html\examples\todos\backbone-localstorage.js</PackagePath>
       <Modified>2012-09-26T12:49:14.319</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\todos\backbone.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\todos\backbone.js">
       <PackagePath>html\examples\todos\backbone.js</PackagePath>
       <Modified>2012-09-26T12:49:14.323</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\todos\todos.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\todos\todos.js">
       <PackagePath>html\examples\todos\todos.js</PackagePath>
       <Modified>2012-09-26T12:49:14.340</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\todos\underscore.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\todos\underscore.js">
       <PackagePath>html\examples\todos\underscore.js</PackagePath>
       <Modified>2012-09-26T12:49:14.343</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\facebook.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\facebook.js">
       <PackagePath>html\facebook.js</PackagePath>
-      <Modified>2012-09-28T12:59:13.845</Modified>
+      <Modified>2012-10-08T14:33:15.134</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\jq.mobi.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\jq.mobi.js">
       <PackagePath>html\jq.mobi.js</PackagePath>
       <Modified>2012-09-26T12:49:14.561</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\jq.mobi.min.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\jq.mobi.min.js">
       <PackagePath>html\jq.mobi.min.js</PackagePath>
       <Modified>2012-09-26T12:49:14.564</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\css3animate.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\css3animate.js">
       <PackagePath>html\plugins\css3animate.js</PackagePath>
       <Modified>2012-09-26T12:49:14.403</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.actionsheet.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.actionsheet.js">
       <PackagePath>html\plugins\jq.actionsheet.js</PackagePath>
       <Modified>2012-09-26T12:49:14.406</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.alphatable.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.alphatable.js">
       <PackagePath>html\plugins\jq.alphatable.js</PackagePath>
       <Modified>2012-09-26T12:49:14.410</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.carousel.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.carousel.js">
       <PackagePath>html\plugins\jq.carousel.js</PackagePath>
       <Modified>2012-09-26T12:49:14.413</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.css3animate.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.css3animate.js">
       <PackagePath>html\plugins\jq.css3animate.js</PackagePath>
       <Modified>2012-09-26T12:49:14.416</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.debug.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.debug.js">
       <PackagePath>html\plugins\jq.debug.js</PackagePath>
       <Modified>2012-09-26T12:49:14.419</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.desktopBrowsers.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.desktopBrowsers.js">
       <PackagePath>html\plugins\jq.desktopBrowsers.js</PackagePath>
       <Modified>2012-09-26T12:49:14.422</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.drawer.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.drawer.js">
       <PackagePath>html\plugins\jq.drawer.js</PackagePath>
       <Modified>2012-09-26T12:49:14.426</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.fx.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.fx.js">
       <PackagePath>html\plugins\jq.fx.js</PackagePath>
       <Modified>2012-09-26T12:49:14.430</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.ie - Copy.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.ie - Copy.js">
       <PackagePath>html\plugins\jq.ie - Copy.js</PackagePath>
       <Modified>2012-09-26T12:49:14.433</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.ie.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.ie.js">
       <PackagePath>html\plugins\jq.ie.js</PackagePath>
       <Modified>2012-09-26T12:49:14.436</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.passwordBox.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.passwordBox.js">
       <PackagePath>html\plugins\jq.passwordBox.js</PackagePath>
       <Modified>2012-09-26T12:49:14.440</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.popup.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.popup.js">
       <PackagePath>html\plugins\jq.popup.js</PackagePath>
       <Modified>2012-09-26T12:49:14.443</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.scroller.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.scroller.js">
       <PackagePath>html\plugins\jq.scroller.js</PackagePath>
       <Modified>2012-09-26T12:49:14.446</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.selectBox.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.selectBox.js">
       <PackagePath>html\plugins\jq.selectBox.js</PackagePath>
       <Modified>2012-09-26T12:49:14.450</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.shake.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.shake.js">
       <PackagePath>html\plugins\jq.shake.js</PackagePath>
       <Modified>2012-09-26T12:49:14.453</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.swipe.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.swipe.js">
       <PackagePath>html\plugins\jq.swipe.js</PackagePath>
       <Modified>2012-09-26T12:49:14.457</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.template.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.template.js">
       <PackagePath>html\plugins\jq.template.js</PackagePath>
       <Modified>2012-09-26T12:49:14.461</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.touchEvents.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.touchEvents.js">
       <PackagePath>html\plugins\jq.touchEvents.js</PackagePath>
       <Modified>2012-09-26T12:49:14.464</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.touchLayer.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.touchLayer.js">
       <PackagePath>html\plugins\jq.touchLayer.js</PackagePath>
       <Modified>2012-09-26T12:49:14.468</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\jq.web.min.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\jq.web.min.js">
       <PackagePath>html\plugins\jq.web.min.js</PackagePath>
       <Modified>2012-09-26T12:49:14.471</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\ui\jq.ui.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\ui\jq.ui.js">
       <PackagePath>html\ui\jq.ui.js</PackagePath>
       <Modified>2012-09-26T12:49:14.523</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\ui\jq.ui.min.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\ui\jq.ui.min.js">
       <PackagePath>html\ui\jq.ui.min.js</PackagePath>
       <Modified>2012-09-26T12:49:14.527</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\ui\src\jq.ui.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\ui\src\jq.ui.js">
       <PackagePath>html\ui\src\jq.ui.js</PackagePath>
       <Modified>2012-09-26T12:49:14.479</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\ui\transitions\all.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\ui\transitions\all.js">
       <PackagePath>html\ui\transitions\all.js</PackagePath>
       <Modified>2012-09-26T12:49:14.484</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\ui\transitions\fade.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\ui\transitions\fade.js">
       <PackagePath>html\ui\transitions\fade.js</PackagePath>
       <Modified>2012-09-26T12:49:14.495</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\ui\transitions\flip.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\ui\transitions\flip.js">
       <PackagePath>html\ui\transitions\flip.js</PackagePath>
       <Modified>2012-09-26T12:49:14.498</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\ui\transitions\pop.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\ui\transitions\pop.js">
       <PackagePath>html\ui\transitions\pop.js</PackagePath>
       <Modified>2012-09-26T12:49:14.502</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\ui\transitions\slide.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\ui\transitions\slide.js">
       <PackagePath>html\ui\transitions\slide.js</PackagePath>
       <Modified>2012-09-26T12:49:14.505</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\ui\transitions\slideDown.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\ui\transitions\slideDown.js">
       <PackagePath>html\ui\transitions\slideDown.js</PackagePath>
       <Modified>2012-09-26T12:49:14.508</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\ui\transitions\slideUp.js">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\ui\transitions\slideUp.js">
       <PackagePath>html\ui\transitions\slideUp.js</PackagePath>
       <Modified>2012-09-26T12:49:14.512</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\knockout\images\background.jpg">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\knockout\images\background.jpg">
       <PackagePath>html\examples\knockout\images\background.jpg</PackagePath>
       <Modified>2012-09-26T12:49:14.168</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\spacehook\images\applab.jpg">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\spacehook\images\applab.jpg">
       <PackagePath>html\examples\spacehook\images\applab.jpg</PackagePath>
       <Modified>2012-09-26T12:49:14.209</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\spacehook\images\logo.jpg">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\spacehook\images\logo.jpg">
       <PackagePath>html\examples\spacehook\images\logo.jpg</PackagePath>
       <Modified>2012-09-26T12:49:14.230</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\spacehook\images\mars.jpg">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\spacehook\images\mars.jpg">
       <PackagePath>html\examples\spacehook\images\mars.jpg</PackagePath>
       <Modified>2012-09-26T12:49:14.238</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\knockout\jq.ui.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\knockout\jq.ui.css">
       <PackagePath>html\examples\knockout\jq.ui.css</PackagePath>
       <Modified>2012-09-26T12:49:14.183</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\knockout\todos.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\knockout\todos.css">
       <PackagePath>html\examples\knockout\todos.css</PackagePath>
       <Modified>2012-09-26T12:49:14.198</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\spacehook\jq.ui.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\spacehook\jq.ui.css">
       <PackagePath>html\examples\spacehook\jq.ui.css</PackagePath>
       <Modified>2012-09-26T12:49:14.264</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\starter\styles\icons.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\starter\styles\icons.css">
       <PackagePath>html\examples\starter\styles\icons.css</PackagePath>
       <Modified>2012-09-26T12:49:14.290</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\starter\styles\jq.actionsheet.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\starter\styles\jq.actionsheet.css">
       <PackagePath>html\examples\starter\styles\jq.actionsheet.css</PackagePath>
       <Modified>2012-09-26T12:49:14.293</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\starter\styles\jq.popup.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\starter\styles\jq.popup.css">
       <PackagePath>html\examples\starter\styles\jq.popup.css</PackagePath>
       <Modified>2012-09-26T12:49:14.297</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\starter\styles\jq.scroller.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\starter\styles\jq.scroller.css">
       <PackagePath>html\examples\starter\styles\jq.scroller.css</PackagePath>
       <Modified>2012-09-26T12:49:14.301</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\starter\styles\jq.selectBox.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\starter\styles\jq.selectBox.css">
       <PackagePath>html\examples\starter\styles\jq.selectBox.css</PackagePath>
       <Modified>2012-09-26T12:49:14.304</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\starter\themes\jq.ui.volcano.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\starter\themes\jq.ui.volcano.css">
       <PackagePath>html\examples\starter\themes\jq.ui.volcano.css</PackagePath>
       <Modified>2012-09-26T12:49:14.308</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\examples\todos\todos.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\examples\todos\todos.css">
       <PackagePath>html\examples\todos\todos.css</PackagePath>
       <Modified>2012-09-26T12:49:14.336</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\kitchensink\icons.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\kitchensink\icons.css">
       <PackagePath>html\kitchensink\icons.css</PackagePath>
       <Modified>2012-09-26T12:49:14.363</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\kitchensink\jq.ui.carbon.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\kitchensink\jq.ui.carbon.css">
       <PackagePath>html\kitchensink\jq.ui.carbon.css</PackagePath>
       <Modified>2012-09-26T12:49:14.367</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\kitchensink\jq.ui.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\kitchensink\jq.ui.css">
       <PackagePath>html\kitchensink\jq.ui.css</PackagePath>
       <Modified>2012-09-26T12:49:14.370</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\kitchensink\jq.ui.eco.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\kitchensink\jq.ui.eco.css">
       <PackagePath>html\kitchensink\jq.ui.eco.css</PackagePath>
       <Modified>2012-09-26T12:49:14.373</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\kitchensink\jq.ui.frosty.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\kitchensink\jq.ui.frosty.css">
       <PackagePath>html\kitchensink\jq.ui.frosty.css</PackagePath>
       <Modified>2012-09-26T12:49:14.377</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\kitchensink\jq.ui.slate.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\kitchensink\jq.ui.slate.css">
       <PackagePath>html\kitchensink\jq.ui.slate.css</PackagePath>
       <Modified>2012-09-26T12:49:14.380</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\kitchensink\jq.ui.volcano.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\kitchensink\jq.ui.volcano.css">
       <PackagePath>html\kitchensink\jq.ui.volcano.css</PackagePath>
       <Modified>2012-09-26T12:49:14.383</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\css\jq.actionsheet.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\css\jq.actionsheet.css">
       <PackagePath>html\plugins\css\jq.actionsheet.css</PackagePath>
       <Modified>2012-09-26T12:49:14.391</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\css\jq.popup.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\css\jq.popup.css">
       <PackagePath>html\plugins\css\jq.popup.css</PackagePath>
       <Modified>2012-09-26T12:49:14.395</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\html\plugins\css\jq.scroller.css">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\plugins\css\jq.scroller.css">
       <PackagePath>html\plugins\css\jq.scroller.css</PackagePath>
       <Modified>2012-09-26T12:49:14.399</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\bin\Debug\App.xaml">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
       <Modified>2012-09-26T12:49:14.573</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\bin\Debug\Common\StandardStyles.xaml">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\bin\Debug\Common\StandardStyles.xaml">
       <PackagePath>Common\StandardStyles.xaml</PackagePath>
       <Modified>2012-09-26T12:49:14.092</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\bin\Debug\AppMobiPage.xaml">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\bin\Debug\AppMobiPage.xaml">
       <PackagePath>AppMobiPage.xaml</PackagePath>
-      <Modified>2012-09-27T18:36:23.741</Modified>
+      <Modified>2012-10-02T13:55:32.925</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate1\appMobiFacebookTemplate1\bin\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\bin\Debug\UserControls\AppMobiView.xaml">
+      <PackagePath>UserControls\AppMobiView.xaml</PackagePath>
+      <Modified>2012-10-02T18:39:50.765</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2012-09-27T18:52:59.662</Modified>
+      <Modified>2012-10-08T14:38:11.591</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -39,7 +39,8 @@ function loadWebScript() {
 	script.onload = function() {
 		if(debug) console.log('got cloud-based appmobi.js');
 	}
-	script.src = "https://d3ezoyt41ban9s.cloudfront.net/javascript/web/3.4.0/appmobi.js";
+	//script.src = "https://d3ezoyt41ban9s.cloudfront.net/javascript/web/3.4.0/appmobi.js";
+	script.src = "appmobi.js";
 	head.appendChild(script);
 }
 
@@ -1798,42 +1799,41 @@ if(typeof AppMobiLocalFlag != "undefined") {
 	 * This class provides access to facebook.
 	 * @constructor
 	 */
-	AppMobi.appMobiFacebookTemplate1 = function() {
+	AppMobi.appMobiFacebookTemplate = function() {
 		this.willHandleUserTouchingLink =  false;
 	}
 	
-	AppMobi.appMobiFacebookTemplate1.prototype.login = function (permissions) {
-	    debugger;
+	AppMobi.appMobiFacebookTemplate.prototype.login = function (permissions) {
 		AppMobi.facebook.internal.login(permissions);
 	}
 	
-	AppMobi.appMobiFacebookTemplate1.prototype.logout = function() {
+	AppMobi.appMobiFacebookTemplate.prototype.logout = function() {
 		AppMobi.facebook.internal.logout();
 	}
 	
-	AppMobi.appMobiFacebookTemplate1.prototype.requestWithRestAPI = function(command, method, parameters) {
+	AppMobi.appMobiFacebookTemplate.prototype.requestWithRestAPI = function(command, method, parameters) {
 		AppMobi.facebook.internal.api(command, method, parameters);
 	}
 	
-	AppMobi.appMobiFacebookTemplate1.prototype.requestWithGraphAPI = function(path, method, parameters) {
+	AppMobi.appMobiFacebookTemplate.prototype.requestWithGraphAPI = function(path, method, parameters) {
 		AppMobi.facebook.internal.api(path, method, parameters);
 	}
 	
-	AppMobi.appMobiFacebookTemplate1.prototype.showAppRequestDialog = function(parameters) {
+	AppMobi.appMobiFacebookTemplate.prototype.showAppRequestDialog = function(parameters) {
 		AppMobi.facebook.internal.appRequest(parameters);
 	}
 	
-	AppMobi.appMobiFacebookTemplate1.prototype.showNewsFeedDialog = function(parameters) {
+	AppMobi.appMobiFacebookTemplate.prototype.showNewsFeedDialog = function(parameters) {
 		if( typeof(parameters) == "undefined" || typeof(parameters) != "object" )
 			parameters = {};
 		parameters.method = "feed";
 		AppMobi.facebook.internal.ui(parameters, "dialog");
 	}
 	
-	AppMobi.appMobiFacebookTemplate1.prototype.enableFrictionlessRequests = function() {
+	AppMobi.appMobiFacebookTemplate.prototype.enableFrictionlessRequests = function() {
 		AppMobi.facebook.internal.frictionless = true;
 	}
-	if (typeof AppMobi.facebook == "undefined") AppMobi.facebook = new AppMobi.appMobiFacebookTemplate1();
+	if (typeof AppMobi.facebook == "undefined") AppMobi.facebook = new AppMobi.appMobiFacebookTemplate();
 	
 	AppMobi.FacebookInternal = function() {
 		this._keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";

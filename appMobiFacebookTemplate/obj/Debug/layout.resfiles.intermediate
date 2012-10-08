@@ -5,9 +5,10 @@ Assets\StoreLogo.png
 App.xaml
 AppMobiPage.xaml
 Common\StandardStyles.xaml
+UserControls\AppMobiView.xaml
 html\amfacebook.html
+html\appmobi.js
 html\appmobi_local_bootstrap.js
-html\Copy of index.html
 html\defer\index.html
 html\examples\knockout\destroy.png
 html\examples\knockout\images\background.jpg

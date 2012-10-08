@@ -154,6 +154,7 @@
     }
 
     try {
+        debugger;
         var command = getQuerystring('cmd', getQuerystring('command', undefined));
         var success = (getQuerystring('error', "") == "") ? true : false;
         var responseType = decodeURIComponent(getQuerystring('responseType'));

@@ -23,11 +23,11 @@ var facebookAPI=function(){
 				},
 				
 				login: function (callbackFunction) {
-				    debugger;
 					facebookAPI.debug("about to log into facebook");
 					if(callbackFunction!='' && callbackFunction!=undefined && callbackFunction!='undefined' && callbackFunction!=null){
 						facebookAPI.receivedDataCallback=callbackFunction;
-						document.addEventListener("appMobi.facebook.login",function(e){
+						document.addEventListener("appMobi.facebook.login", function (e) {
+						    debugger;
 							facebookAPI.currentAuthToken = e.token;
 							try { this.getUser(); } catch(e) {}
 						
@@ -39,13 +39,22 @@ var facebookAPI=function(){
 				},
 				
 				//name,picture,caption,description,link are all possible parameters
-				post:function(params,callbackFunction) {
+				post: function (params, callbackFunction) {
 					try { document.removeEventListener("appMobi.facebook.dialog.complete"); } catch(e) {}
 					if(callbackFunction!='' && callbackFunction!=undefined && callbackFunction!='undefined' && callbackFunction!=null){
 						facebookAPI.receivedDataCallback=callbackFunction;
 						document.addEventListener("appMobi.facebook.dialog.complete",facebookAPI.receivedDataCallback,false); 
 					}
-					AppMobi.facebook.showNewsFeedDialog(params);				
+
+					var myData, dataArray, key;
+					var dataString = "";
+					for (key in params) {
+					    if (params.hasOwnProperty(key)) {
+					        if (dataString.length > 0) { dataString = dataString + "&"; }
+					        dataString += key + "=" + params[key];
+					    }
+					}
+					AppMobi.facebook.showNewsFeedDialog(dataString);
 				},
 				
 				//message, title, filters, exclude_ids, max_recipients, data are all possible parameters
@@ -59,7 +68,8 @@ var facebookAPI=function(){
 					AppMobi.facebook.showAppRequestDialog(params);	
 				},
 				
-				getUser:function (callbackFunction) {
+				getUser: function (callbackFunction) {
+				    debugger;
 					try { document.removeEventListener("appMobi.facebook.request.response"); } catch(e) {}
 					if(callbackFunction!='' && callbackFunction!=undefined && callbackFunction!='undefined' && callbackFunction!=null){
 						facebookAPI.receivedDataCallback=callbackFunction;
@@ -68,8 +78,10 @@ var facebookAPI=function(){
 								this.me = e.data;
 							} 
 							
-							//remove the event handler
-							document.removeEventListener("appMobi.facebook.request.response");
+						    try {
+						        //remove the event handler
+						        document.removeEventListener("appMobi.facebook.request.response");
+						    } catch (e) {}
 							
 							//make the callback
 							eval(facebookAPI.receivedDataCallback(this.me));
@@ -84,7 +96,7 @@ var facebookAPI=function(){
 
 				//a generic Facebook graph API -- requires path parameter
 				friends:function(facebookUserID, callbackFunction) {
-					
+				    debugger;
 					if (facebookUserID == "") { facebookUserID = "me"; }
 					
 					facebookAPI.debug("about to query the Facebook Graph");
@@ -101,8 +113,11 @@ var facebookAPI=function(){
 								facebookAPI.debug(e.data);
 								
 								objFriends = e.data;
-								document.removeEventListener("appMobi.facebook.request.response");
-							} else { objFriends = e; }
+								    try {
+								        //remove the event handler
+								        document.removeEventListener("appMobi.facebook.request.response");
+								    } catch (e) { }
+								} else { objFriends = e; }
 					
 							//make the callback
 							eval(facebookAPI.receivedDataCallback(objFriends));

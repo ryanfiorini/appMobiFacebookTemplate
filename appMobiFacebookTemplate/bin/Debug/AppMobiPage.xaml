@@ -5,6 +5,7 @@
     xmlns:local="using:AppMobiWindow8Template"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:appMobiView="using:appMobiFacebookTemplate.UserControls"
     mc:Ignorable="d">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
@@ -14,8 +15,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        
-        <WebView x:Name="webView" Grid.Column="0" Grid.Row="0"></WebView>
+        <appMobiView:AppMobiView x:Name="webView1" Grid.Column="0" Grid.Row="0"></appMobiView:AppMobiView>
     </Grid>
 </Page>
 

@@ -44,16 +44,11 @@
 	.jqmscrollBar {background:white !important;}	
 	
 </style>
-<!-- uncomment for AppMobi apps
-<script type="text/javascript" charset="utf-8" src="http://localhost:58888/_appMobi/appmobi.js"></script> 
-<script type="text/javascript" charset="utf-8" src="http://localhost:58888/_appMobi/xhr.js"></script> 	
--->
 <script type="text/javascript" charset="utf-8" src="appmobi_local_bootstrap.js"></script> 
 
-<script type="text/javascript" charset="utf-8" src="./jq.mobi.js"></script> 
+<script type="text/javascript" charset="utf-8" src="jq.mobi.js"></script> 
 <script type="text/javascript" charset="utf-8" src="facebook.js"></script> 
 
-<!-- include jq.desktopBrowsers.js on desktop browsers only -->
 <script>
     function loadedPanel(what) {
         //We are going to set the badge as the number of li elements inside the target
@@ -116,13 +111,13 @@
     //  FACEBOOK Implementation
     document.addEventListener("appMobi.facebook.login", function (e) {
         if (e.success == true)
-        { alert("appMobiFacebookTemplate1 Log in Successful"); }
+        { alert("appMobiFacebookTemplate Log in Successful"); }
         else
         { alert("Unsuccessful Login"); }
     }, false);
     document.addEventListener("appMobi.facebook.logout", function (e) {
         if (e.success == true)
-        { alert("Logged out of appMobiFacebookTemplate1"); }
+        { alert("Logged out of appMobiFacebookTemplate"); }
         else
         { alert("Unsuccessful Logout"); }
     }, false);
@@ -134,19 +129,53 @@
             "caption": "Just a test of my appMobi Win 8 Template posting a message!",
             "link": "http://apps.facebook.com/RyanWin8Template/",
             "picture": "http://dev.appmobi.com/documentation/images/possums.jpg"
-        }, function () {
-
+        }, function (responseObject) {
+            alert('in callback handler: ' + responseObject.data.Message);
         });
     }
-    function facebookLoginStream() {
-        //AppMobi.facebook.login("publish_stream,publish_actions,offline_access");
 
-        facebookAPI.login(function () {
-            alert('in here');
+    function facebookLogin() {
+        facebookAPI.login(function (responseObject) {
+            //alert('in callback handler: ' + responseObject.data.Message);
+            if (responseObject.success) {
+                $("#btnFBPost").show();
+                $("#btnFBGetUser").show();
+                $("#btnFBFriends").show();
+                $("#btnFBLogout").show();
+                $("#btnFBLogin").hide();
+            }
         });
     }
+
+    function facebookGetUser() {
+        facebookAPI.getUser(function (responseObject) {
+            debugger;
+            if (responseObject!=null) {
+                $("#txtProfileName").val(responseObject.username);
+                $("#txtFirstName").val(responseObject.first_name);
+                $("#txtLastName").val(responseObject.last_name);
+
+                $("#fbUserInfo").show();
+            }
+            alert('in callback handler: facebookGetUser');
+        });
+    }
+
+    function facebookGetFriends() {
+        facebookAPI.friends("", function (responseObject) {
+            debugger;
+            if (responseObject.data.lenght>0) {
+            }
+            alert('in callback handler: facebookGetFriends - friend count=' + responseObject.data.length);
+        });
+    }
+
     function facebookLogout() {
-        AppMobi.facebook.logout();
+        //AppMobi.facebook.logout();
+        facebookAPI.logout(function (message) {
+            debugger;
+            alert('in callback handler: ' + message);
+        });
     }
     //  FACEBOOK Implementation END
 
@@ -174,7 +203,7 @@
 
 <script type="text/javascript">
     /* This function runs once the page is loaded, but appMobi is not yet active */
-    var webRoot = "./kitchensink/";
+    var webRoot = "html/";
     $.ui.autoLaunch = false;
     $.ui.openLinksNewTab = false;
     var init = function () {
@@ -187,20 +216,22 @@
 
     /* This code is used to run as soon as appMobi activates */
     var onDeviceReady = function () {
-        //debugger;
+        window.external.notify('MESSAGE:Hello appMobi');
+
         console.log("wtfmobi");
         //AppMobi.device.setRotateOrientation("portrait");
         //AppMobi.device.setAutoRotate(false);
-        AppMobi.app = 'ace101.ryanwin8fbtemplate';
         AppMobi.webRoot = window.location.href.match('[^/]*//.*[/]{1}')[0];
-        webRoot = AppMobi.webRoot + "kitchensink/";
+
         //hide splash screen
         AppMobi.device.hideSplashScreen();
 
         //initialize the Facebook helper library
         facebookAPI.init();
-        $("#main_info").toggle();
+        //AppMobi.app = 'ace101.ryanwin8fbtemplate';
+        AppMobi.app = '502889586389431';
 
+        $("#main_info").toggle();
     };
     document.addEventListener("appMobi.device.ready", onDeviceReady, false);
 
@@ -235,12 +266,19 @@
 <div id="content">
 	<div title='Welcome' id="main" class="panel" selected="true" data-load="loadedPanel" data-unload="unloadedPanel" data-tab="navbar_home">
 
-	<h2 class='expanded' onclick='showHide(this,"main_info");'>appMobi appMobiFacebookTemplate1 Template</h2>
+	<h2 class='expanded' onclick='showHide(this,"main_info");'>appMobi appMobiFacebookTemplate Template</h2>
 		<p id='main_info' style="display:none;">
-            <input type="button" onclick="facebookLoginStream();" class='jq-ui-forms' value="FB Login" /><br/>
-            <input type="button" onclick="facebookPost();" class='jq-ui-forms' value="FB Post" /><br/>
-            <input type="button" onclick="facebookLogout();" class='jq-ui-forms' value="FB Logout" /><br/>
+            <input id="btnFBLogin" type="button" onclick="facebookLogin();" class='jq-ui-forms' value="FB Login" /><br/>
+            <input id="btnFBPost" style="display:none;" type="button" onclick="facebookPost();" class='jq-ui-forms' value="FB Post" /><br/>
+            <input id="btnFBGetUser" style="display:none;" type="button" onclick="facebookGetUser();" class='jq-ui-forms' value="FB Get User" /><br/>
+            <input id="btnFBFriends" style="display:none;" type="button" onclick="facebookGetFriends();" class='jq-ui-forms' value="FB Get Friends" /><br/>
+            <input id="btnFBLogout" style="display:none;" type="button" onclick="facebookLogout();" class='jq-ui-forms' value="FB Logout" /><br/>
 		</p>
+        <p id="fbUserInfo" style="display:none;">
+            ProfileName: <input type="text" id="txtProfileName" />
+            FirstName: <input type="text" id="txtFirstName" />
+            LastName: <input type="text" id="txtLastName" />
+        </p>
 	</div> 
 
 </div>
@@ -256,7 +294,7 @@
 <nav>
    <div class='title'>Home</div>
    <ul>
-      <li class="icon home mini"><a href="#jqm">appMobiFacebookTemplate1</a></li>
+      <li class="icon home mini"><a href="#jqm">appMobiFacebookTemplate</a></li>
    </ul>
 </nav>
 <nav id="menu_jqmobi">
@@ -266,5 +304,9 @@
    </ul>
 </nav>
 </div>
+
+
+<iframe id="appMobi_Facebook_Communication_Frame" style="display: none; width: 100%; height: 100%; top: 0px; left: 0px; position: absolute; z-index: 2147483647; " src=""></iframe>
+
 </body>
 </html>
