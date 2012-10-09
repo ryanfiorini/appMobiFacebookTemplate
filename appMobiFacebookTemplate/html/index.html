@@ -101,15 +101,15 @@
         alert("raw: " + typeof (response.raw));
 
     }
-    document.addEventListener('appMobi.facebook.request.response', function (response) { showResponse("GRAPH_API", response) }, false);
+    /*document.addEventListener('appMobi.facebook.request.response', function (response) { showResponse("GRAPH_API", response) }, false);
     document.addEventListener('appMobi.facebook.dialog.complete', function (response) { showResponse("DIALOG", response) }, false);
     document.addEventListener('appMobi.facebook.dialog.fail', function (response) { showResponse("DIALOG Fail", response) }, false);
     document.addEventListener('appMobi.facebook.login', function (response) { showResponse("LOGIN", response) }, false);
     document.addEventListener('appMobi.facebook.logout', function (response) { showResponse("LOGOUT", response) }, false);
-    document.addEventListener('appMobi.facebook.request', function (response) { showResponse("REQUEST", response) }, false);
+    document.addEventListener('appMobi.facebook.request', function (response) { showResponse("REQUEST", response) }, false);*/
 
     //  FACEBOOK Implementation
-    document.addEventListener("appMobi.facebook.login", function (e) {
+    /*document.addEventListener("appMobi.facebook.login", function (e) {
         if (e.success == true)
         { alert("appMobiFacebookTemplate Log in Successful"); }
         else
@@ -120,7 +120,7 @@
         { alert("Logged out of appMobiFacebookTemplate"); }
         else
         { alert("Unsuccessful Logout"); }
-    }, false);
+    }, false);*/
 
     function facebookPost() {
         //name,picture,caption,description,link
@@ -142,6 +142,9 @@
                 $("#btnFBGetUser").show();
                 $("#btnFBFriends").show();
                 $("#btnFBLogout").show();
+                $("#btnFBSend").show();
+                $("#btnFBFeedDialog").show();
+                $("#btnFBAppRequestDialog").show();
                 $("#btnFBLogin").hide();
             }
         });
@@ -164,9 +167,56 @@
     function facebookGetFriends() {
         facebookAPI.friends("", function (responseObject) {
             debugger;
-            if (responseObject.data.lenght>0) {
+            if (responseObject != null && responseObject.data.lenght>0) {
             }
             alert('in callback handler: facebookGetFriends - friend count=' + responseObject.data.length);
+        });
+    }
+    function facebookSendDialog() {
+        debugger;
+        facebookAPI.appRequest({
+            method: 'send',
+            name: 'Make Webapsp your HTML5 Expertise',
+            link: 'http://www.appmobi.com/?page_id%3D119',
+            redirect_uri: 'http://fb.appmobi.com'
+        }, function (responseObject) {
+            debugger;
+            if (responseObject != null && responseObject.success) {
+            }
+            alert('in callback handler: facebookSend success=' + responseObject.success);
+        });
+    }
+
+
+    function facebookFeedDialog() {
+        debugger;
+        facebookAPI.appRequest({
+            method: 'feed',
+            link: 'https://developers.facebook.com/docs/reference/dialogs/',
+            picture: 'http://fbrell.com/f8.jpg',
+            name: 'Facebook Dialogs',
+            caption: 'Reference Documentation',
+            description: 'Using Dialogs to interact with users.',
+            redirect_uri: 'http://fb.appmobi.com'
+        }, function (responseObject) {
+            debugger;
+            if (responseObject != null && responseObject.success) {
+            }
+            alert('in callback handler: facebookSend success=' + responseObject.success);
+        });
+    }
+
+    function facebookAppRequestDialog() {
+        debugger;
+        facebookAPI.appRequest({
+            method: 'apprequests',
+            message: 'My Great Win 8 Template Test',
+            redirect_uri: 'http://fb.appmobi.com'
+        }, function (responseObject) {
+            debugger;
+            if (responseObject != null && responseObject.success) {
+            }
+            alert('in callback handler: facebookSend success=' + responseObject.success);
         });
     }
 
@@ -272,6 +322,9 @@
             <input id="btnFBPost" style="display:none;" type="button" onclick="facebookPost();" class='jq-ui-forms' value="FB Post" /><br/>
             <input id="btnFBGetUser" style="display:none;" type="button" onclick="facebookGetUser();" class='jq-ui-forms' value="FB Get User" /><br/>
             <input id="btnFBFriends" style="display:none;" type="button" onclick="facebookGetFriends();" class='jq-ui-forms' value="FB Get Friends" /><br/>
+            <input id="btnFBSend" style="display:none;" type="button" onclick="facebookSendDialog();" class='jq-ui-forms' value="FB Send Dialog" /><br/>
+            <input id="btnFBFeedDialog" style="display:none;" type="button" onclick="facebookFeedDialog();" class='jq-ui-forms' value="FB Feed Dailog" /><br/>
+            <input id="btnFBAppRequestDialog" style="display:none;" type="button" onclick="facebookAppRequestDialog();" class='jq-ui-forms' value="FB App Request Dailog" /><br/>
             <input id="btnFBLogout" style="display:none;" type="button" onclick="facebookLogout();" class='jq-ui-forms' value="FB Logout" /><br/>
 		</p>
         <p id="fbUserInfo" style="display:none;">

@@ -27,7 +27,6 @@ var facebookAPI=function(){
 					if(callbackFunction!='' && callbackFunction!=undefined && callbackFunction!='undefined' && callbackFunction!=null){
 						facebookAPI.receivedDataCallback=callbackFunction;
 						document.addEventListener("appMobi.facebook.login", function (e) {
-						    debugger;
 							facebookAPI.currentAuthToken = e.token;
 							try { this.getUser(); } catch(e) {}
 						
@@ -65,7 +64,17 @@ var facebookAPI=function(){
 						facebookAPI.receivedDataCallback=callbackFunction;
 						document.addEventListener("appMobi.facebook.dialog.complete",facebookAPI.receivedDataCallback,false);
 					}
-					AppMobi.facebook.showAppRequestDialog(params);	
+					debugger;
+
+					var myData, dataArray, key;
+					var dataString = "";
+					for (key in params) {
+					    if (params.hasOwnProperty(key)) {
+					        if (dataString.length > 0) { dataString = dataString + "&"; }
+					        dataString += key + "=" + params[key];
+					    }
+					}
+					AppMobi.facebook.showAppRequestDialog(dataString);
 				},
 				
 				getUser: function (callbackFunction) {
@@ -92,8 +101,6 @@ var facebookAPI=function(){
 					AppMobi.facebook.requestWithGraphAPI("/me","GET",{});
 				},
 				
-				
-
 				//a generic Facebook graph API -- requires path parameter
 				friends:function(facebookUserID, callbackFunction) {
 				    debugger;

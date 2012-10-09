@@ -1772,7 +1772,6 @@ if (typeof AppMobi.facebook == "undefined") AppMobi.facebook = new AppMobi.Faceb
 
 AppMobi.FacebookInternal = function() {
 	this._keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
-	this.busy = false;
 	this.frictionless = false;
 }
 
@@ -1805,38 +1804,28 @@ AppMobi.FacebookInternal.prototype.setCommunicationFrameUrl = function(url)
 
 AppMobi.FacebookInternal.prototype.callbackComplete = function()
 {
-	AppMobi.facebook.internal.busy = false;
+	//AppMobi.facebook.internal.busy = false;
 	document.getElementById('appMobi_Facebook_Communication_Frame').style.display = 'none';
 }
 
 AppMobi.FacebookInternal.prototype.login = function(scope)
 {
-	if(AppMobi.facebook.internal.busy)
-		return AppMobi.facebook.internal.busyError();
-	else
-		AppMobi.facebook.internal.busy = true;
-
+    debugger;
 	var args = "scope=" + ((typeof (scope) == "undefined" || scope.length == 0) ? "publish_stream,publish_actions,offline_access" : scope);
 
-    //AppMobi.facebook.internal.apiCall('login',args, 'login');
-    window.external.notify("type=FBLogin&app_id=" + AppMobi.app + "&" + args);
+    AppMobi.facebook.internal.apiCall('login', args, 'login');
 }
 
 AppMobi.FacebookInternal.prototype.appRequest = function(params)
 {
-	if( typeof(params) == "undefined" || typeof( params ) != "object")
-		params = {};
-	params.method = 'apprequests';
+	//if( typeof(params) == "undefined" || typeof( params ) != "object")
+	//	params = {};
+	//params.method = 'apprequests';
 	AppMobi.facebook.internal.ui(params, 'request');
 }
 
 AppMobi.FacebookInternal.prototype.api = function(path, httpMethod, parameters)
 {
-	/*if(AppMobi.facebook.internal.busy)
-		return AppMobi.facebook.internal.busyError();
-	else
-		AppMobi.facebook.internal.busy = true;*/
-
 	//FBData = {'path':path, 'parameters':parameters, 'method': httpMethod};
 	//dataToSend = encodeURIComponent(emu_core.Base64.encode(JSON.stringify(FBData)));
 	//this.setCommunicationFrameUrl("http://fb.appmobi.com/facebook/default.aspx?cmd=fbxdk&appname="+AppMobi.app+"&data="+dataToSend+"&type=api");
@@ -1853,11 +1842,6 @@ AppMobi.FacebookInternal.prototype.api = function(path, httpMethod, parameters)
 
 AppMobi.FacebookInternal.prototype.ui = function(params, responseType)
 {
-    /*if (AppMobi.facebook.internal.busy)
-		return AppMobi.facebook.internal.busyError();
-	else
-		AppMobi.facebook.internal.busy = true;*/
-
 	//if( typeof(params) == "undefined" || typeof( params ) != "object" ) params = {};
 	params = params + "&display=dialog"; //popup
 	//dataToSend = encodeURIComponent(AppMobi.facebook.internal.base64Encode(JSON.stringify(params)));
@@ -1868,14 +1852,9 @@ AppMobi.FacebookInternal.prototype.ui = function(params, responseType)
 
 AppMobi.FacebookInternal.prototype.logout = function(params)
 {
-	/*if(AppMobi.facebook.internal.busy)
-		return AppMobi.facebook.internal.busyError();
-	else
-		AppMobi.facebook.internal.busy = true;*/
-
 	//AppMobi.facebook.internal.apiCall('logout',[],'logout');
 	//this.setCommunicationFrameUrl("http://fb.appmobi.com/facebook/default.aspx?cmd=fbxdk&appname="+AppMobi.app+"&type=logout");
-	window.external.notify("type=FBLogout&app_id=" + AppMobi.app);
+    AppMobi.facebook.internal.apiCall('logout', '', 'logout');
 }
 
 AppMobi.FacebookInternal.prototype.handleResponse = function(eventName,success,responseData,extra,remainbusy)

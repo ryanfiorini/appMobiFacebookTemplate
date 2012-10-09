@@ -28,9 +28,12 @@ namespace appMobiFacebookTemplate.UserControls
         /// For extensive list of available extended permissions refer to 
         /// https://developers.facebook.com/docs/reference/api/permissions/
         /// </remarks>
-        private const string ExtendedPermissions = "user_about_me,read_stream,publish_stream";
+        private const string ExtendedPermissions = "publish_stream,publish_actions,offline_access";
 
         private ExpandoObject FBUser;
+        private bool busy = false;
+        private Uri lastUri;
+        private bool dialogLoadComplete = false;
 
         private readonly FacebookClient _fb = new FacebookClient();
 
@@ -79,16 +82,11 @@ namespace appMobiFacebookTemplate.UserControls
                 return;
             }
 
-            var dict = commandStr.Split(new[] { '&' }, StringSplitOptions.RemoveEmptyEntries)
+            Dictionary<string,string> dict = commandStr.Split(new[] { '&' }, StringSplitOptions.RemoveEmptyEntries)
                .Select(part => part.Split('='))
                .ToDictionary(split => split[0], split => split[1]);
 
-            if (dict["type"].Equals("FBLogin"))
-            {
-                //commandStr = commandStr.Replace("FBLogin:", "");
-                Login(dict["app_id"], (dict["scope"].Length > 1 && dict["scope"] != null) ? dict["scope"] : ExtendedPermissions);
-            }
-            else if (dict["type"].Equals("FBPost"))
+            if (dict["type"].Equals("FBPost"))
             {
                 commandStr = commandStr.Replace("MESSAGE:", "");
                 Debug.WriteLine("MESSAGE :: " + commandStr);
@@ -100,27 +98,48 @@ namespace appMobiFacebookTemplate.UserControls
 
                 if (dict["method"].Equals("feed"))
                 {
-                    PostToWall(dict);
+                    ShowDialog(dict);
+                }
+                else if (dict["method"].Equals("send"))
+                {
+                    ShowDialog(dict);
+                }
+                else if (dict["method"].Equals("apprequests"))
+                {
+                    ShowDialog(dict);
                 }
             }
             else if (dict["type"].Equals("FBAPI"))
             {
-                commandStr = commandStr.Replace("MESSAGE:", "");
-                Debug.WriteLine("MESSAGE :: " + commandStr);
+                if (dict["func"].Equals("login"))
+                {
+                    Login(dict["app_id"], (dict["scope"].Length > 1 && dict["scope"] != null) ? dict["scope"] : ExtendedPermissions);
+                }
+                else if (dict["func"].Equals("logout"))
+                {
+                    Logout();
+                }
+                else if (dict["func"].Equals("feed"))
+                {
+                    PostToWall(dict);
+                }
+                else
+                {
+                    commandStr = commandStr.Replace("MESSAGE:", "");
+                    Debug.WriteLine("MESSAGE :: " + commandStr);
 
-                //if (dict["method"].Equals("feed"))
-                //{
                     GetUserData(dict);
-                //}
-            }
-            else if (dict["type"].Equals("FBLogout"))
-            {
-                Logout();
+                }
             }
         }
 
-        public void Login(string app_id, string permissions)
+        private void Login(string app_id, string permissions)
         {
+            if (busy)
+                sendBusyEvent();
+
+            busy = true;
+
             var loginUrl = GetFacebookLoginUrl(app_id, permissions);
 
             List<Uri> allowedUris = new List<Uri>();
@@ -131,8 +150,13 @@ namespace appMobiFacebookTemplate.UserControls
             webViewFB.Visibility = Windows.UI.Xaml.Visibility.Visible;
         }
 
-        public void Logout()
+        private void Logout()
         {
+            if (busy)
+                sendBusyEvent();
+
+            busy = true;
+
             var logoutUrl = GetFacebookLogoutUrl("http://www.appmobi.com", _fb.AccessToken, "1");
 
             List<Uri> allowedUris = new List<Uri>();
@@ -140,10 +164,11 @@ namespace appMobiFacebookTemplate.UserControls
             webViewFB.AllowedScriptNotifyUris = allowedUris;
 
             webViewFB.Navigate(logoutUrl);
-            webViewFB.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            webViewFB.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
 
             String js = "javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.logout',true,true);e.success=true;document.dispatchEvent(e);";
-            webView.InvokeScript("execScript", new string[] { js });
+            InjectJS(js);
+            busy = false; 
         }
 
         private Uri GetFacebookLoginUrl(string appId, string extendedPermissions)
@@ -177,13 +202,11 @@ namespace appMobiFacebookTemplate.UserControls
         private string _lastMessageId;
         private async void GetUserData(Dictionary<string, string> param)
         {
+            if (busy)
+                sendBusyEvent();
 
-            //dynamic result = await _fb.GetTaskAsync("me", parameters);
-            //parameters = new ExpandoObject();
-            //parameters.id = result.id;
-            //parameters.access_token = accessToken;
-
-
+            busy = true;
+            
             try
             {
                 string path = "/me";
@@ -197,7 +220,7 @@ namespace appMobiFacebookTemplate.UserControls
                 Facebook.JsonObject result = await _fb.GetTaskAsync(path, parameters);
 
                 string js = "javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.request.response',true,true);e.success=true;e.raw='"+result.ToString()+"';e.data={};try{e.data=JSON.parse(e.raw);}catch(ex){}e.error='';document.dispatchEvent(e);";
-                webView.InvokeScript("execScript", new string[] { js });
+                InjectJS(js);
             }
             catch (FacebookApiException ex)
             {
@@ -207,21 +230,28 @@ namespace appMobiFacebookTemplate.UserControls
                     // user not logged in.
                     ScriptResponse sr = ErrorHandler.setupErrorResponse(ErrorsEnum.E000203);
                     //string js = "(function(){ AppMobi.facebook.internal.handleResponse('request.response',false," + sr.ToJson() + ")})();";
-                    string js = string.Format("javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.request.response',true,true);e.success=false;e.error='{0}';e.raw='';e.data={};document.dispatchEvent(e);", sr.Message);
-                    webView.InvokeScript("execScript", new string[] { js });
+                    string js = string.Format("javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.request.response',true,true);e.success=false;e.error='{0}';e.raw='';e.data={{}};document.dispatchEvent(e);", sr.Message);
+                    InjectJS(js);
                 }
                 else
                 {
                     // user not logged in.
                     ScriptResponse sr = ErrorHandler.setupErrorResponse(ErrorsEnum.E000202);
                     //string js = "(function(){ AppMobi.facebook.internal.handleResponse('request.response',false," + sr.ToJson() + ")})();";
-                    string js = string.Format("javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.request.response',true,true);e.success=false;e.error='{0}';e.raw='';e.data={};document.dispatchEvent(e);", ex.Message);
-                    webView.InvokeScript("execScript", new string[] { js });
+                    string js = string.Format("javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.request.response',true,true);e.success=false;e.error='{0}';e.raw='';e.data={{}};document.dispatchEvent(e);", sr.Message);
+                    InjectJS(js);
                 }
             }
+            finally
+            { busy = false; }
         }
         private async void PostToWall(Dictionary<string, string> param)
         {
+            if (busy)
+                sendBusyEvent();
+
+            busy = true;
+
             try
             {
                 dynamic parameters = new ExpandoObject();
@@ -232,10 +262,10 @@ namespace appMobiFacebookTemplate.UserControls
 
                 dynamic result = await _fb.PostTaskAsync("me/feed", parameters);
                 _lastMessageId = result.id;
-
+                
                 ScriptResponse sr = new ScriptResponse { Message = "Facebook Post Successful", ResponseCode = "" };
                 string js = "(function(){ AppMobi.facebook.internal.handleResponse('dialog.complete',true," + sr.ToJson() + ")})();";
-                webView.InvokeScript("execScript", new string[] { js });
+                InjectJS(js);
             }
             catch (FacebookApiException ex)
             {
@@ -244,17 +274,46 @@ namespace appMobiFacebookTemplate.UserControls
                 {
                     // user not logged in.
                     ScriptResponse sr = ErrorHandler.setupErrorResponse(ErrorsEnum.E000201);
-                    string js = string.Format("javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.request.response',true,true);e.success=false;e.error='{0}';e.raw='';e.data={};document.dispatchEvent(e);", sr.Message);
-                    webView.InvokeScript("execScript", new string[] { js });
+                    string js = string.Format("javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.request.response',true,true);e.success=false;e.error='{0}';e.raw='';e.data={{}};document.dispatchEvent(e);", sr.Message);
+                    InjectJS(js);
                 }
                 else
                 {
                     ScriptResponse sr = ErrorHandler.setupErrorResponse(ErrorsEnum.E000200);
                     //ScriptResponse sr = new ScriptResponse { Message = "Facebook Post Failed", ResponseCode = "" };
-                    string js = string.Format("javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.request.response',true,true);e.success=false;e.error='{0}';e.raw='';e.data={};document.dispatchEvent(e);", ex.Message);
-                    webView.InvokeScript("execScript", new string[] { js });
+                    string js = string.Format("javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.request.response',true,true);e.success=false;e.error='{0}';e.raw='';e.data={{}};document.dispatchEvent(e);", sr.Message);
+                    InjectJS(js);
                 }
             }
+            finally
+            { busy = false; }
+        }
+        private void ShowDialog(Dictionary<string, string> dict)
+        {
+            if (busy)
+                sendBusyEvent();
+
+            busy = true;
+            string url = "https://www.facebook.com/dialog/";   //{0}?app_id={1}&name={2}&link={3}&redirect_uri={4}";
+
+            if (dict.Keys.Contains<string>("method")) { url += dict["method"] + "?"; }
+            if (dict.Keys.Contains<string>("app_id")) { url += "app_id=" + dict["app_id"] + "&"; }
+            if (dict.Keys.Contains<string>("name")) { url += "name=" + dict["name"] + "&"; }
+            if (dict.Keys.Contains<string>("link")) { url += "link=" + dict["link"] + "&"; }
+            if (dict.Keys.Contains<string>("redirect_uri")) { url += "redirect_uri=" + dict["redirect_uri"] + "&"; }
+            if (dict.Keys.Contains<string>("picture")) { url += "picture=" + dict["picture"] + "&"; }
+            if (dict.Keys.Contains<string>("caption")) { url += "caption=" + dict["caption"] + "&"; }
+            if (dict.Keys.Contains<string>("description")) { url += "description=" + dict["description"] + "&"; }
+            if (dict.Keys.Contains<string>("message")) { url += "message=" + dict["message"] + "&"; }
+
+            lastUri = new Uri(url);
+
+            List<Uri> allowedUris = new List<Uri>();
+            allowedUris.Add(lastUri);
+            webViewFB.AllowedScriptNotifyUris = allowedUris;
+
+            webViewFB.Navigate(lastUri);
+            webViewFB.Visibility = Windows.UI.Xaml.Visibility.Visible;
         }
 
         private void webView_NavigationFailed(object sender, WebViewNavigationFailedEventArgs e)
@@ -276,7 +335,24 @@ namespace appMobiFacebookTemplate.UserControls
             FacebookOAuthResult oauthResult;
             if (!_fb.TryParseOAuthCallbackUrl(e.Uri, out oauthResult))
             {
-                return;
+
+                if (e.Uri == lastUri && busy)
+                {
+                    dialogLoadComplete = true;
+                    return;
+                }
+                else if (dialogLoadComplete && busy)
+                {
+                    busy = false;
+                    dialogLoadComplete = false;
+                    lastUri = null;
+                    webViewFB.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                    String js = "javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.dialog.complete',true,true);e.success=true;document.dispatchEvent(e);";
+                    InjectJS(js);
+                    return;
+                } else {
+                    return;
+                }
             }
 
             if (oauthResult.IsSuccess)
@@ -288,7 +364,7 @@ namespace appMobiFacebookTemplate.UserControls
             {
                 // user cancelled
                 string js = "javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.request.response',true,true);e.success=false;e.error='login failed';e.raw='';e.data={};document.dispatchEvent(e);";
-                webView.InvokeScript("execScript", new string[] { js });
+                InjectJS(js);
             }
         }
 
@@ -305,10 +381,21 @@ namespace appMobiFacebookTemplate.UserControls
             //ScriptResponse sr = new ScriptResponse { Message = "Facebook Login Successful", ResponseCode = "", token = accessToken };
             //string js = "(function(){ AppMobi.facebook.internal.handleResponse('login',true," + sr.ToJson() + ")})();";
             string js = "javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.login',true,true);e.success=true;e.cancelled=false;e.token='" + accessToken + "';document.dispatchEvent(e);";
-            webView.InvokeScript("execScript", new string[] { js });
+            InjectJS(js);
 
             //Frame.Navigate(typeof(FacebookInfoPage), (object)parameters);
             webViewFB.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+        }
+
+        private void sendBusyEvent()
+        {
+            String js = "javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.busy',true,true);e.success=false;e.message='busy';document.dispatchEvent(e);";
+            InjectJS(js);
+        }
+
+        private void InjectJS(string js)
+        {
+            webView.InvokeScript("execScript", new string[] { js });
         }
     }
 }
