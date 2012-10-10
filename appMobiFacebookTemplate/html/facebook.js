@@ -74,7 +74,7 @@ var facebookAPI=function(){
 				        objFriends = e.data;
 				        try {
 				            //remove the event handler
-				            document.removeEventListener("appMobi.facebook.request.response",this.friendsCallback,false);
+				            document.removeEventListener("appMobi.facebook.request.response", facebookAPI.friendsCallback, false);
 				        } catch (e) { debugger; }
 				    } else { objFriends = e; }
 
@@ -133,14 +133,15 @@ var facebookAPI=function(){
 					
 				    AppMobi.facebook.requestWithGraphAPI("/me", "GET", {});
 				},
-				getUserCallback: function(e){
+				getUserCallback: function (e) {
+				    debugger;
 				    if (e.success == true) {
 				        this.me = e.data;
 				    } 
 							
 				    try {
 				        //remove the event handler
-				        document.removeEventListener("appMobi.facebook.request.response", this.getUserCallback, false);
+				        document.removeEventListener("appMobi.facebook.request.response", facebookAPI.getUserCallback, false);
 				    } catch (e) { debugger;}
 							
 				    //make the callback
