@@ -222,7 +222,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\facebook.js">
       <PackagePath>html\facebook.js</PackagePath>
-      <Modified>2012-10-10T12:54:40.841</Modified>
+      <Modified>2012-10-10T13:08:35.135</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\jq.mobi.js">
       <PackagePath>html\jq.mobi.js</PackagePath>

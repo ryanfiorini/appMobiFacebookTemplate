@@ -39,10 +39,10 @@ var facebookAPI=function(){
 				
 				requestWithGraphAPI: function (path, http, params, callbackFunction) {
 				    debugger;
-				    try { document.removeEventListener("appMobi.facebook.dialog.complete", facebookAPI.receivedDataCallback,false); } catch (e) { }
+				    try { document.removeEventListener("appMobi.facebook.request.response", facebookAPI.receivedDataCallback, false); } catch (e) { debugger; }
 				    if (callbackFunction != '' && callbackFunction != undefined && callbackFunction != 'undefined' && callbackFunction != null) {
 				        facebookAPI.receivedDataCallback = callbackFunction;
-				        document.addEventListener("appMobi.facebook.dialog.complete", facebookAPI.receivedDataCallback, false);
+				        document.addEventListener("appMobi.facebook.request.response", facebookAPI.receivedDataCallback, false);
 				    }
 
 				    AppMobi.facebook.requestWithGraphAPI(path, http, params);
@@ -58,7 +58,7 @@ var facebookAPI=function(){
 				    try { document.removeEventListener("appMobi.facebook.request.response", facebookAPI.receivedDataCallback,false); } catch (e) { }
 				    if (callbackFunction != '' && callbackFunction != undefined && callbackFunction != 'undefined' && callbackFunction != null) {
 				        facebookAPI.receivedDataCallback = callbackFunction;
-				        document.addEventListener("appMobi.facebook.request.response", this.friendsCallback, false);
+				        document.addEventListener("appMobi.facebook.request.response", facebookAPI.friendsCallback, false);
 				    }
 
 				    AppMobi.facebook.requestWithGraphAPI("/me/friends", "GET", {});
