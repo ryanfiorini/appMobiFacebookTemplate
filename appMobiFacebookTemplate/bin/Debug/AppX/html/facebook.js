@@ -37,8 +37,27 @@ var facebookAPI=function(){
 					AppMobi.facebook.login("email,publish_stream,publish_actions,offline_access");
 				},
 				
+				requestWithGraphAPI: function (path, http, params, callbackFunction) {
+				    debugger;
+				    try { document.removeEventListener("appMobi.facebook.dialog.complete"); } catch (e) { }
+				    if (callbackFunction != '' && callbackFunction != undefined && callbackFunction != 'undefined' && callbackFunction != null) {
+				        facebookAPI.receivedDataCallback = callbackFunction;
+				        document.addEventListener("appMobi.facebook.dialog.complete", facebookAPI.receivedDataCallback, false);
+				    }
+
+				    var myData, dataArray, key;
+				    var dataString = "";
+				    for (key in params) {
+				        if (params.hasOwnProperty(key)) {
+				            if (dataString.length > 0) { dataString = dataString + "&"; }
+				            dataString += key + "=" + params[key];
+				        }
+				    }
+				    AppMobi.facebook.requestWithGraphAPI(path, http, dataString);
+				},
+
 				//name,picture,caption,description,link are all possible parameters
-				post: function (params, callbackFunction) {
+				newsFeedDialog: function (params, callbackFunction) {
 					try { document.removeEventListener("appMobi.facebook.dialog.complete"); } catch(e) {}
 					if(callbackFunction!='' && callbackFunction!=undefined && callbackFunction!='undefined' && callbackFunction!=null){
 						facebookAPI.receivedDataCallback=callbackFunction;
@@ -57,7 +76,7 @@ var facebookAPI=function(){
 				},
 				
 				//message, title, filters, exclude_ids, max_recipients, data are all possible parameters
-				request:function(params, callbackFunction) {
+				appRequest:function(params, callbackFunction) {
 				
 					try { document.removeEventListener("appMobi.facebook.dialog.complete"); } catch(e) {}
 					if(callbackFunction!='' && callbackFunction!=undefined && callbackFunction!='undefined' && callbackFunction!=null){

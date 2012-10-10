@@ -1750,7 +1750,7 @@ AppMobi.Facebook.prototype.requestWithRestAPI = function(command, method, parame
 	AppMobi.facebook.internal.api(command, method, parameters);
 }
 
-AppMobi.Facebook.prototype.requestWithGraphAPI = function(path, method, parameters) {
+AppMobi.Facebook.prototype.requestWithGraphAPI = function (path, method, parameters) {
 	AppMobi.facebook.internal.api(path, method, parameters);
 }
 
@@ -1826,7 +1826,8 @@ AppMobi.FacebookInternal.prototype.appRequest = function(params)
 
 AppMobi.FacebookInternal.prototype.api = function(path, httpMethod, parameters)
 {
-	//FBData = {'path':path, 'parameters':parameters, 'method': httpMethod};
+    debugger;
+    //FBData = {'path':path, 'parameters':parameters, 'method': httpMethod};
 	//dataToSend = encodeURIComponent(emu_core.Base64.encode(JSON.stringify(FBData)));
 	//this.setCommunicationFrameUrl("http://fb.appmobi.com/facebook/default.aspx?cmd=fbxdk&appname="+AppMobi.app+"&data="+dataToSend+"&type=api");
     var params = "";
@@ -1837,7 +1838,8 @@ AppMobi.FacebookInternal.prototype.api = function(path, httpMethod, parameters)
 	if (httpMethod != undefined) params += "&httpMethod=" + httpMethod;
 	//if (parameters != undefined) args.push(parameters);
 
-	AppMobi.facebook.internal.apiCall('api', params, 'request.response');
+	//AppMobi.facebook.internal.apiCall('api', params, 'request.response');
+	AppMobi.facebook.internal.apiCall('feed', params, 'request.response');
 }
 
 AppMobi.FacebookInternal.prototype.ui = function(params, responseType)
@@ -1881,6 +1883,7 @@ AppMobi.FacebookInternal.prototype.handleResponse = function(eventName,success,r
 
 AppMobi.FacebookInternal.prototype.apiCall = function(func,args,responseType)
 {
+    debugger;
     var apiDat = "func=" + func + "&responseType=" + responseType;
     if (args != null && args.length > 0)
         apiDat += "&" + args;

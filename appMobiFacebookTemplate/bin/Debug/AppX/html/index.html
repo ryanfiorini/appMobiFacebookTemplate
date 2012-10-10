@@ -119,14 +119,29 @@
         if (e.success == true)
         { alert("Logged out of appMobiFacebookTemplate"); }
         else
+
         { alert("Unsuccessful Logout"); }
     }, false);*/
 
-    function facebookPost() {
+    function facebookPostGraph() {
         //name,picture,caption,description,link
-        facebookAPI.post({
+        facebookAPI.requestWithGraphAPI("/me/feed", "GET", {
             "name": "Ryan Win8 Template",
-            "caption": "Just a test of my appMobi Win 8 Template posting a message!",
+            "caption": "GRAPH: Just a test of my appMobi Win 8 Template posting a message!",
+            "link": "http://apps.facebook.com/RyanWin8Template/",
+            "picture": "http://dev.appmobi.com/documentation/images/possums.jpg",
+            "message": "just a test"
+        }, function (responseObject) {
+            alert('in callback handler: ' + responseObject.data.Message);
+        });
+    }
+
+
+    function facebookPostFeed() {
+        //name,picture,caption,description,link
+        facebookAPI.newsFeedDialog({
+            "name": "Ryan Win8 Template",
+            "caption": "DIALOG: Just a test of my appMobi Win 8 Template posting a message!",
             "link": "http://apps.facebook.com/RyanWin8Template/",
             "picture": "http://dev.appmobi.com/documentation/images/possums.jpg"
         }, function (responseObject) {
@@ -138,6 +153,7 @@
         facebookAPI.login(function (responseObject) {
             //alert('in callback handler: ' + responseObject.data.Message);
             if (responseObject.success) {
+                $("#bnFBPostGraph").show();
                 $("#btnFBPost").show();
                 $("#btnFBGetUser").show();
                 $("#btnFBFriends").show();
@@ -174,7 +190,7 @@
     }
     function facebookSendDialog() {
         debugger;
-        facebookAPI.request({
+        facebookAPI.appRequest({
             method: 'send',
             name: 'Make Webapsp your HTML5 Expertise',
             link: 'http://www.appmobi.com/?page_id%3D119',
@@ -190,7 +206,7 @@
 
     function facebookFeedDialog() {
         debugger;
-        facebookAPI.request({
+        facebookAPI.appRequest({
             method: 'feed',
             link: 'https://developers.facebook.com/docs/reference/dialogs/',
             picture: 'http://fbrell.com/f8.jpg',
@@ -208,7 +224,7 @@
 
     function facebookAppRequestDialog() {
         debugger;
-        facebookAPI.request({
+        facebookAPI.appRequest({
             method: 'apprequests',
             message: 'My Great Win 8 Template Test',
             redirect_uri: 'http://fb.appmobi.com'
@@ -319,7 +335,8 @@
 	<h2 class='expanded' onclick='showHide(this,"main_info");'>appMobi appMobiFacebookTemplate Template</h2>
 		<p id='main_info' style="display:none;">
             <input id="btnFBLogin" type="button" onclick="facebookLogin();" class='jq-ui-forms' value="FB Login" /><br/>
-            <input id="btnFBPost" style="display:none;" type="button" onclick="facebookPost();" class='jq-ui-forms' value="FB Post" /><br/>
+            <input id="bnFBPostGraph" style="display:none;" type="button" onclick="facebookPostGraph();" class='jq-ui-forms' value="FB Post Graph" /><br/>
+            <input id="btnFBPost" style="display:none;" type="button" onclick="facebookPostFeed();" class='jq-ui-forms' value="FB Post Dialog" /><br/>
             <input id="btnFBGetUser" style="display:none;" type="button" onclick="facebookGetUser();" class='jq-ui-forms' value="FB Get User" /><br/>
             <input id="btnFBFriends" style="display:none;" type="button" onclick="facebookGetFriends();" class='jq-ui-forms' value="FB Get Friends" /><br/>
             <input id="btnFBSend" style="display:none;" type="button" onclick="facebookSendDialog();" class='jq-ui-forms' value="FB Send Dialog" /><br/>

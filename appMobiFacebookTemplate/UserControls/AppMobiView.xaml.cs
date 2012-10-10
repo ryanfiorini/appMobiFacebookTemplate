@@ -254,13 +254,17 @@ namespace appMobiFacebookTemplate.UserControls
 
             try
             {
+                string path = "/me/feed";
+
                 dynamic parameters = new ExpandoObject();
                 if (param.Keys.Contains<string>("name")) { parameters.name = param["name"]; }
                 if (param.Keys.Contains<string>("caption")) { parameters.caption = param["caption"]; }
                 if (param.Keys.Contains<string>("link")) { parameters.link = param["link"]; }
                 if (param.Keys.Contains<string>("picture")) { parameters.picture = param["picture"]; }
+                if (param.Keys.Contains<string>("message")) { parameters.message = param["message"]; }
+                if (param.Keys.Contains<string>("path")) { path = param["path"]; }
 
-                dynamic result = await _fb.PostTaskAsync("me/feed", parameters);
+                dynamic result = await _fb.PostTaskAsync(path, parameters);
                 _lastMessageId = result.id;
                 
                 ScriptResponse sr = new ScriptResponse { Message = "Facebook Post Successful", ResponseCode = "" };
