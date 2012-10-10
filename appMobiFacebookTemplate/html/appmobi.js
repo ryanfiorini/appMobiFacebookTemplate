@@ -1836,7 +1836,7 @@ AppMobi.FacebookInternal.prototype.api = function(path, httpMethod, parameters)
 	//if(parameters != undefined)args.push(parameters);
 	if (path != undefined) params += "path=" + path;
 	if (httpMethod != undefined) params += "&httpMethod=" + httpMethod;
-	//if (parameters != undefined) args.push(parameters);
+	if (parameters != undefined) params += "&" + parameters;
 
 	//AppMobi.facebook.internal.apiCall('api', params, 'request.response');
 	AppMobi.facebook.internal.apiCall('feed', params, 'request.response');
