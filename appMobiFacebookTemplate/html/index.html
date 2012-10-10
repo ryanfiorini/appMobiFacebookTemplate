@@ -125,7 +125,7 @@
 
     function facebookPostGraph() {
         //name,picture,caption,description,link
-        facebookAPI.requestWithGraphAPI("/me/feed", "GET", {
+        facebookAPI.requestWithGraphAPI("/me/feed", "POST", {
             "name": "Ryan Win8 Template",
             "caption": "GRAPH: Just a test of my appMobi Win 8 Template posting a message!",
             "link": "http://apps.facebook.com/RyanWin8Template/",
@@ -335,13 +335,14 @@
 	<h2 class='expanded' onclick='showHide(this,"main_info");'>appMobi appMobiFacebookTemplate Template</h2>
 		<p id='main_info' style="display:none;">
             <input id="btnFBLogin" type="button" onclick="facebookLogin();" class='jq-ui-forms' value="FB Login" /><br/>
-            <input id="bnFBPostGraph" style="display:none;" type="button" onclick="facebookPostGraph();" class='jq-ui-forms' value="FB Post Graph" /><br/>
-            <input id="btnFBPost" style="display:none;" type="button" onclick="facebookPostFeed();" class='jq-ui-forms' value="FB Post Dialog" /><br/>
-            <input id="btnFBGetUser" style="display:none;" type="button" onclick="facebookGetUser();" class='jq-ui-forms' value="FB Get User" /><br/>
-            <input id="btnFBFriends" style="display:none;" type="button" onclick="facebookGetFriends();" class='jq-ui-forms' value="FB Get Friends" /><br/>
-            <input id="btnFBSend" style="display:none;" type="button" onclick="facebookSendDialog();" class='jq-ui-forms' value="FB Send Dialog" /><br/>
-            <input id="btnFBFeedDialog" style="display:none;" type="button" onclick="facebookFeedDialog();" class='jq-ui-forms' value="FB Feed Dailog" /><br/>
-            <input id="btnFBAppRequestDialog" style="display:none;" type="button" onclick="facebookAppRequestDialog();" class='jq-ui-forms' value="FB App Request Dailog" /><br/>
+            <input id="bnFBPostGraph" style="display:none;" type="button" onclick="facebookPostGraph();" class='jq-ui-forms' value="FB Post (Graph)" /><br/>
+            <input id="btnFBGetUser" style="display:none;" type="button" onclick="facebookGetUser();" class='jq-ui-forms' value="FB Get User (Graph)" /><br/>
+            <input id="btnFBFriends" style="display:none;" type="button" onclick="facebookGetFriends();" class='jq-ui-forms' value="FB Get Friends (Graph)" /><br/>
+
+            <input id="btnFBPost" style="display:none;" type="button" onclick="facebookPostFeed();" class='jq-ui-forms' value="FB Post (Dialog)" /><br/>
+            <input id="btnFBSend" style="display:none;" type="button" onclick="facebookSendDialog();" class='jq-ui-forms' value="FB Send (Dialog)" /><br/>
+            <input id="btnFBFeedDialog" style="display:none;" type="button" onclick="facebookFeedDialog();" class='jq-ui-forms' value="FB Feed (Dailog)" /><br/>
+            <input id="btnFBAppRequestDialog" style="display:none;" type="button" onclick="facebookAppRequestDialog();" class='jq-ui-forms' value="FB App Request (Dailog)" /><br/>
             <input id="btnFBLogout" style="display:none;" type="button" onclick="facebookLogout();" class='jq-ui-forms' value="FB Logout" /><br/>
 		</p>
         <p id="fbUserInfo" style="display:none;">

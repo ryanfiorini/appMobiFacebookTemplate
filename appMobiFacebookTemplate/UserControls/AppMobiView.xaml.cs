@@ -121,14 +121,16 @@ namespace appMobiFacebookTemplate.UserControls
                 }
                 else if (dict["func"].Equals("feed"))
                 {
-                    PostToWall(dict);
+                    if (dict["httpMethod"].Equals("GET"))
+                        GetUserData(dict);
+                    else
+                        PostUserData(dict);
                 }
                 else
                 {
                     commandStr = commandStr.Replace("MESSAGE:", "");
                     Debug.WriteLine("MESSAGE :: " + commandStr);
 
-                    GetUserData(dict);
                 }
             }
         }
@@ -245,7 +247,7 @@ namespace appMobiFacebookTemplate.UserControls
             finally
             { busy = false; }
         }
-        private async void PostToWall(Dictionary<string, string> param)
+        private async void PostUserData(Dictionary<string, string> param)
         {
             if (busy)
                 sendBusyEvent();

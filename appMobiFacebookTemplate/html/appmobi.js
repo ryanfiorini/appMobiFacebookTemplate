@@ -1836,7 +1836,17 @@ AppMobi.FacebookInternal.prototype.api = function(path, httpMethod, parameters)
 	//if(parameters != undefined)args.push(parameters);
 	if (path != undefined) params += "path=" + path;
 	if (httpMethod != undefined) params += "&httpMethod=" + httpMethod;
-	if (parameters != undefined) params += "&" + parameters;
+	//if (parameters != undefined) params += "&" + parameters;
+
+	if (parameters != undefined) {
+	    var myData, dataArray, key;
+	    for (key in parameters) {
+	        if (parameters.hasOwnProperty(key)) {
+	            if (params.length > 0) { params += "&"; }
+	            params += key + "=" + parameters[key];
+	        }
+	    }
+	}
 
 	//AppMobi.facebook.internal.apiCall('api', params, 'request.response');
 	AppMobi.facebook.internal.apiCall('feed', params, 'request.response');
