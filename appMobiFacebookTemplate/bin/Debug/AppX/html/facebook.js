@@ -6,7 +6,6 @@ var facebookAPI=function(){
 				debugMode:1,
 				me:{},
 			
-			
 				init:function(){
 
 					/************************************
@@ -95,7 +94,7 @@ var facebookAPI=function(){
 				//message, title, filters, exclude_ids, max_recipients, data are all possible parameters
 				showAppRequestDialog: function (params, callbackFunction) {
 				
-					try { document.removeEventListener("appMobi.facebook.dialog.complete"); } catch(e) {}
+				    try { document.removeEventListener("appMobi.facebook.dialog.complete", facebookAPI.receivedDataCallback, false); } catch (e) { }
 					if(callbackFunction!='' && callbackFunction!=undefined && callbackFunction!='undefined' && callbackFunction!=null){
 						facebookAPI.receivedDataCallback=callbackFunction;
 						document.addEventListener("appMobi.facebook.dialog.complete",facebookAPI.receivedDataCallback,false);

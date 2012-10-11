@@ -30,6 +30,7 @@ namespace appMobiFacebookTemplate.UserControls
         /// </remarks>
         private const string ExtendedPermissions = "publish_stream,publish_actions,offline_access";
 
+        private const string redirctUri = "http://fb.appmobi.com/facebook/default.aspx";
         private ExpandoObject FBUser;
         private bool busy = false;
         private Uri lastUri;
@@ -338,6 +339,7 @@ namespace appMobiFacebookTemplate.UserControls
 
         private void webView_LoadCompleted(object sender, NavigationEventArgs e)
         {
+
             FacebookOAuthResult oauthResult;
             if (!_fb.TryParseOAuthCallbackUrl(e.Uri, out oauthResult))
             {
@@ -354,19 +356,35 @@ namespace appMobiFacebookTemplate.UserControls
 
                     // graph Send response
                     //http://fb.appmobi.com/facebook/default.aspx?success=1&rnd=1589770112
-
+                    //http://fb.appmobi.com/facebook/default.aspx&rnd=993780044
+                    //http://fb.appmobi.com/facebook/default.aspx#_=_
 
                     // graph app request response  (success then cancels)
                     //http://fb.appmobi.com/facebook/default.aspx?request=358182454272845&to[0]=1012149326&rnd=907833315
                     //http://fb.appmobi.com/facebook/default.aspx&rnd=1319827246
 
-                    busy = false;
-                    dialogLoadComplete = false;
-                    lastUri = null;
-                    webViewFB.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                    String js = "javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.dialog.complete',true,true);e.success=true;document.dispatchEvent(e);";
-                    InjectJS(js);
-                    return;
+                    string uri = e.Uri.ToString().Replace("#_=_", "");
+
+                    if (uri.Equals(redirctUri))
+                    {
+                        busy = false;
+                        dialogLoadComplete = false;
+                        lastUri = null;
+                        webViewFB.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                        string js = "javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.dialog.complete',true,true);e.success=false;e.error='user canceled';e.raw='';e.data={};document.dispatchEvent(e);";
+                        InjectJS(js);
+                        return;
+                    }
+                    else
+                    {
+                        busy = false;
+                        dialogLoadComplete = false;
+                        lastUri = null;
+                        webViewFB.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                        String js = "javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.dialog.complete',true,true);e.success=true;document.dispatchEvent(e);";
+                        InjectJS(js);
+                        return;
+                    }
                 } else {
                     return;
                 }
@@ -413,6 +431,11 @@ namespace appMobiFacebookTemplate.UserControls
         private void InjectJS(string js)
         {
             webView.InvokeScript("execScript", new string[] { js });
+        }
+
+        private void webView_LayoutUpdated(object sender, object e)
+        {
+            string ryan = "val";
         }
     }
 }

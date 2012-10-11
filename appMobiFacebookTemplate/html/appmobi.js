@@ -1861,8 +1861,6 @@ AppMobi.FacebookInternal.prototype.ui = function(params, responseType)
 	//this.setCommunicationFrameUrl("http://fb.appmobi.com/facebook/default.aspx?cmd=fbxdk&appname="+AppMobi.app+"&data="+dataToSend+"&type=ui");
 	//AppMobi.facebook.internal.apiCall('ui', [params], responseType);
 
-    debugger;
-
 	if (params != undefined) {
 	    var myData, dataArray, key;
 	    for (key in params) {
@@ -1872,7 +1870,7 @@ AppMobi.FacebookInternal.prototype.ui = function(params, responseType)
 	        }
 	    }
 	}
-	debugger;
+
 	window.external.notify("type=FBUI&app_id=" + AppMobi.app + "&" + parameters);
 }
 

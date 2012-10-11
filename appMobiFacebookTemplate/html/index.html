@@ -144,9 +144,13 @@
             "caption": "DIALOG: Just a test of my appMobi Win 8 Template posting a message!",
             "link": "http://apps.facebook.com/RyanWin8Template/",
             "picture": "http://dev.appmobi.com/documentation/images/possums.jpg",
-            "redirect_uri": "http://fb.appmobi.com"
+            "redirect_uri": "http://fb.appmobi.com/facebook/default.aspx"
         }, function (responseObject) {
-            alert('in callback handler: ' + responseObject.data.Message);
+            if (responseObject != null && responseObject.success) {
+                alert('in callback handler: ' + responseObject.data.Message);
+            } else {
+                alert('in callback handler: ' + responseObject.error);
+            }
         });
     }
 
@@ -191,11 +195,14 @@
             method: 'send',
             name: 'Make Webapps your HTML5 Expertise',
             link: 'http://www.appmobi.com/?page_id%3D119',
-            redirect_uri: 'http://fb.appmobi.com'
+            redirect_uri: 'http://fb.appmobi.com/facebook/default.aspx'
         }, function (responseObject) {
+            debugger;
             if (responseObject != null && responseObject.success) {
+                alert('in callback handler: facebookSend success=' + responseObject.success);
+            } else {
+                alert('in callback handler: ' + responseObject.error);
             }
-            alert('in callback handler: facebookSend success=' + responseObject.success);
         });
     }
 
@@ -203,11 +210,14 @@
         facebookAPI.showAppRequestDialog({
             method: 'apprequests',
             message: 'My Great Win 8 Template Test',
-            redirect_uri: 'http://fb.appmobi.com'
+            redirect_uri: 'http://fb.appmobi.com/facebook/default.aspx'
         }, function (responseObject) {
+            debugger;
             if (responseObject != null && responseObject.success) {
+                alert('in callback handler: facebookSend success=' + responseObject.success);
+            } else {
+                alert('in callback handler: ' + responseObject.error);
             }
-            alert('in callback handler: facebookSend success=' + responseObject.success);
         });
     }
 
