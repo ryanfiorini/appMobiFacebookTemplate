@@ -301,7 +301,7 @@ namespace appMobiFacebookTemplate.UserControls
                 sendBusyEvent();
 
             busy = true;
-            string url = "https://www.facebook.com/dialog/";   //{0}?app_id={1}&name={2}&link={3}&redirect_uri={4}";
+            string url = "https://www.facebook.com/dialog/";
 
             if (dict.Keys.Contains<string>("method")) { url += dict["method"] + "?"; }
             if (dict.Keys.Contains<string>("app_id")) { url += "app_id=" + dict["app_id"] + "&"; }
@@ -334,7 +334,6 @@ namespace appMobiFacebookTemplate.UserControls
             webView.AllowedScriptNotifyUris = allowedUris;
 
             webView.Navigate(StartPageUri);
-
         }
 
         private void webView_LoadCompleted(object sender, NavigationEventArgs e)
@@ -363,6 +362,7 @@ namespace appMobiFacebookTemplate.UserControls
                     //http://fb.appmobi.com/facebook/default.aspx?request=358182454272845&to[0]=1012149326&rnd=907833315
                     //http://fb.appmobi.com/facebook/default.aspx&rnd=1319827246
 
+                    // remove junk FB returns with url becasue of bug.
                     string uri = e.Uri.ToString().Replace("#_=_", "");
 
                     if (uri.Equals(redirctUri))
