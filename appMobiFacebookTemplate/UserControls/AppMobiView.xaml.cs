@@ -349,6 +349,17 @@ namespace appMobiFacebookTemplate.UserControls
                 }
                 else if (dialogLoadComplete && busy)
                 {
+                    // graph Post response
+                    //http://fb.appmobi.com/facebook/default.aspx?post_id=1297773075_251213681667801&rnd=1496133381
+
+                    // graph Send response
+                    //http://fb.appmobi.com/facebook/default.aspx?success=1&rnd=1589770112
+
+
+                    // graph app request response  (success then cancels)
+                    //http://fb.appmobi.com/facebook/default.aspx?request=358182454272845&to[0]=1012149326&rnd=907833315
+                    //http://fb.appmobi.com/facebook/default.aspx&rnd=1319827246
+
                     busy = false;
                     dialogLoadComplete = false;
                     lastUri = null;

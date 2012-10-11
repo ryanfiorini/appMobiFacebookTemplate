@@ -143,7 +143,8 @@
             "name": "Ryan Win8 Template",
             "caption": "DIALOG: Just a test of my appMobi Win 8 Template posting a message!",
             "link": "http://apps.facebook.com/RyanWin8Template/",
-            "picture": "http://dev.appmobi.com/documentation/images/possums.jpg"
+            "picture": "http://dev.appmobi.com/documentation/images/possums.jpg",
+            "redirect_uri": "http://fb.appmobi.com"
         }, function (responseObject) {
             alert('in callback handler: ' + responseObject.data.Message);
         });
@@ -159,7 +160,6 @@
                 $("#btnFBFriends").show();
                 $("#btnFBLogout").show();
                 $("#btnFBSend").show();
-                $("#btnFBFeedDialog").show();
                 $("#btnFBAppRequestDialog").show();
                 $("#btnFBLogin").hide();
             }
@@ -168,7 +168,6 @@
 
     function facebookGetUser() {
         facebookAPI.getUser(function (responseObject) {
-            debugger;
             if (responseObject!=null) {
                 $("#txtProfileName").val(responseObject.username);
                 $("#txtFirstName").val(responseObject.first_name);
@@ -182,40 +181,18 @@
 
     function facebookGetFriends() {
         facebookAPI.friends("", function (responseObject) {
-            debugger;
             if (responseObject != null && responseObject.data.lenght>0) {
             }
             alert('in callback handler: facebookGetFriends - friend count=' + responseObject.data.length);
         });
     }
     function facebookSendDialog() {
-        debugger;
-        facebookAPI.appRequest({
+        facebookAPI.showAppRequestDialog({
             method: 'send',
-            name: 'Make Webapsp your HTML5 Expertise',
+            name: 'Make Webapps your HTML5 Expertise',
             link: 'http://www.appmobi.com/?page_id%3D119',
             redirect_uri: 'http://fb.appmobi.com'
         }, function (responseObject) {
-            debugger;
-            if (responseObject != null && responseObject.success) {
-            }
-            alert('in callback handler: facebookSend success=' + responseObject.success);
-        });
-    }
-
-
-    function facebookFeedDialog() {
-        debugger;
-        facebookAPI.appRequest({
-            method: 'feed',
-            link: 'https://developers.facebook.com/docs/reference/dialogs/',
-            picture: 'http://fbrell.com/f8.jpg',
-            name: 'Facebook Dialogs',
-            caption: 'Reference Documentation',
-            description: 'Using Dialogs to interact with users.',
-            redirect_uri: 'http://fb.appmobi.com'
-        }, function (responseObject) {
-            debugger;
             if (responseObject != null && responseObject.success) {
             }
             alert('in callback handler: facebookSend success=' + responseObject.success);
@@ -223,13 +200,11 @@
     }
 
     function facebookAppRequestDialog() {
-        debugger;
-        facebookAPI.appRequest({
+        facebookAPI.showAppRequestDialog({
             method: 'apprequests',
             message: 'My Great Win 8 Template Test',
             redirect_uri: 'http://fb.appmobi.com'
         }, function (responseObject) {
-            debugger;
             if (responseObject != null && responseObject.success) {
             }
             alert('in callback handler: facebookSend success=' + responseObject.success);
@@ -239,7 +214,6 @@
     function facebookLogout() {
         //AppMobi.facebook.logout();
         facebookAPI.logout(function (message) {
-            debugger;
             alert('in callback handler: ' + message);
         });
     }
@@ -341,7 +315,6 @@
 
             <input id="btnFBPost" style="display:none;" type="button" onclick="facebookPostFeed();" class='jq-ui-forms' value="FB Post (Dialog)" /><br/>
             <input id="btnFBSend" style="display:none;" type="button" onclick="facebookSendDialog();" class='jq-ui-forms' value="FB Send (Dialog)" /><br/>
-            <input id="btnFBFeedDialog" style="display:none;" type="button" onclick="facebookFeedDialog();" class='jq-ui-forms' value="FB Feed (Dailog)" /><br/>
             <input id="btnFBAppRequestDialog" style="display:none;" type="button" onclick="facebookAppRequestDialog();" class='jq-ui-forms' value="FB App Request (Dailog)" /><br/>
             <input id="btnFBLogout" style="display:none;" type="button" onclick="facebookLogout();" class='jq-ui-forms' value="FB Logout" /><br/>
 		</p>

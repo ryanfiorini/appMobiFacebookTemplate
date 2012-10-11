@@ -38,7 +38,6 @@ var facebookAPI=function(){
 				},
 				
 				requestWithGraphAPI: function (path, http, params, callbackFunction) {
-				    debugger;
 				    try { document.removeEventListener("appMobi.facebook.request.response", facebookAPI.receivedDataCallback, false); } catch (e) { debugger; }
 				    if (callbackFunction != '' && callbackFunction != undefined && callbackFunction != 'undefined' && callbackFunction != null) {
 				        facebookAPI.receivedDataCallback = callbackFunction;
@@ -64,7 +63,6 @@ var facebookAPI=function(){
 				    AppMobi.facebook.requestWithGraphAPI("/me/friends", "GET", {});
 				},
 				friendsCallback : function (e) {
-
 				    var objFriends = { "success": false };
 				    if (e.success == true) {
 
@@ -91,36 +89,19 @@ var facebookAPI=function(){
 						document.addEventListener("appMobi.facebook.dialog.complete",facebookAPI.receivedDataCallback,false); 
 					}
 
-					var myData, dataArray, key;
-					var dataString = "";
-					for (key in params) {
-					    if (params.hasOwnProperty(key)) {
-					        if (dataString.length > 0) { dataString = dataString + "&"; }
-					        dataString += key + "=" + params[key];
-					    }
-					}
-					AppMobi.facebook.showNewsFeedDialog(dataString);
+					AppMobi.facebook.showNewsFeedDialog(params);
 				},
 				
 				//message, title, filters, exclude_ids, max_recipients, data are all possible parameters
-				appRequest:function(params, callbackFunction) {
+				showAppRequestDialog: function (params, callbackFunction) {
 				
 					try { document.removeEventListener("appMobi.facebook.dialog.complete"); } catch(e) {}
 					if(callbackFunction!='' && callbackFunction!=undefined && callbackFunction!='undefined' && callbackFunction!=null){
 						facebookAPI.receivedDataCallback=callbackFunction;
 						document.addEventListener("appMobi.facebook.dialog.complete",facebookAPI.receivedDataCallback,false);
 					}
-					debugger;
 
-					var myData, dataArray, key;
-					var dataString = "";
-					for (key in params) {
-					    if (params.hasOwnProperty(key)) {
-					        if (dataString.length > 0) { dataString = dataString + "&"; }
-					        dataString += key + "=" + params[key];
-					    }
-					}
-					AppMobi.facebook.showAppRequestDialog(dataString);
+					AppMobi.facebook.showAppRequestDialog(params);
 				},
 				
 				getUser: function (callbackFunction) {

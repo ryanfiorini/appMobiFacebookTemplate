@@ -1759,9 +1759,10 @@ AppMobi.Facebook.prototype.showAppRequestDialog = function(parameters) {
 }
 
 AppMobi.Facebook.prototype.showNewsFeedDialog = function(parameters) {
-    //if( typeof(parameters) == "undefined" || typeof(parameters) != "object" )
-    //    parameters = {};
-    parameters = parameters + "&method=feed";
+    if( typeof(parameters) == "undefined" || typeof(parameters) != "object" )
+        parameters = {};
+
+    parameters.method="feed";
     AppMobi.facebook.internal.ui(parameters, "dialog");
 }
 
@@ -1855,11 +1856,24 @@ AppMobi.FacebookInternal.prototype.api = function(path, httpMethod, parameters)
 AppMobi.FacebookInternal.prototype.ui = function(params, responseType)
 {
 	//if( typeof(params) == "undefined" || typeof( params ) != "object" ) params = {};
-	params = params + "&display=dialog"; //popup
-	//dataToSend = encodeURIComponent(AppMobi.facebook.internal.base64Encode(JSON.stringify(params)));
+    parameters = "display=dialog"; //popup
+	//dataToSend  == encodeURIComponent(AppMobi.facebook.internal.base64Encode(JSON.stringify(params)));
 	//this.setCommunicationFrameUrl("http://fb.appmobi.com/facebook/default.aspx?cmd=fbxdk&appname="+AppMobi.app+"&data="+dataToSend+"&type=ui");
 	//AppMobi.facebook.internal.apiCall('ui', [params], responseType);
-	window.external.notify("type=FBUI&app_id=" + AppMobi.app + "&" + params);
+
+    debugger;
+
+	if (params != undefined) {
+	    var myData, dataArray, key;
+	    for (key in params) {
+	        if (params.hasOwnProperty(key)) {
+	            if (parameters.length > 0) { parameters += "&"; }
+	            parameters += key + "=" + params[key];
+	        }
+	    }
+	}
+	debugger;
+	window.external.notify("type=FBUI&app_id=" + AppMobi.app + "&" + parameters);
 }
 
 AppMobi.FacebookInternal.prototype.logout = function(params)
