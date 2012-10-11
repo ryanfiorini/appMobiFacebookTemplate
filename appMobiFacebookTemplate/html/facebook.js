@@ -37,7 +37,7 @@ var facebookAPI=function(){
 				},
 				
 				requestWithGraphAPI: function (path, http, params, callbackFunction) {
-				    try { document.removeEventListener("appMobi.facebook.request.response", facebookAPI.receivedDataCallback, false); } catch (e) { debugger; }
+				    try { document.removeEventListener("appMobi.facebook.request.response", facebookAPI.receivedDataCallback, false); } catch (e) {  }
 				    if (callbackFunction != '' && callbackFunction != undefined && callbackFunction != 'undefined' && callbackFunction != null) {
 				        facebookAPI.receivedDataCallback = callbackFunction;
 				        document.addEventListener("appMobi.facebook.request.response", facebookAPI.receivedDataCallback, false);
@@ -48,7 +48,6 @@ var facebookAPI=function(){
 
 			    //a generic Facebook graph API -- requires path parameter
 				friends: function (facebookUserID, callbackFunction) {
-				    debugger;
 				    if (facebookUserID == "") { facebookUserID = "me"; }
 
 				    facebookAPI.debug("about to query the Facebook Graph");
@@ -72,7 +71,7 @@ var facebookAPI=function(){
 				        try {
 				            //remove the event handler
 				            document.removeEventListener("appMobi.facebook.request.response", facebookAPI.friendsCallback, false);
-				        } catch (e) { debugger; }
+				        } catch (e) { }
 				    } else { objFriends = e; }
 
 				    //make the callback
@@ -114,7 +113,6 @@ var facebookAPI=function(){
 				    AppMobi.facebook.requestWithGraphAPI("/me", "GET", {});
 				},
 				getUserCallback: function (e) {
-				    debugger;
 				    if (e.success == true) {
 				        this.me = e.data;
 				    } 
@@ -122,7 +120,7 @@ var facebookAPI=function(){
 				    try {
 				        //remove the event handler
 				        document.removeEventListener("appMobi.facebook.request.response", facebookAPI.getUserCallback, false);
-				    } catch (e) { debugger;}
+				    } catch (e) {}
 							
 				    //make the callback
 				    eval(facebookAPI.receivedDataCallback(this.me));
