@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace appMobiFacebookTemplate.Helpers
+namespace AppMobiWindows8FacebookTemplate.Helpers
 {
     public class EnumHandler
     {

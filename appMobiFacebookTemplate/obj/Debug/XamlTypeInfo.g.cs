@@ -9,17 +9,17 @@
 
 
 
-namespace AppMobiWindow8Template
+namespace AppMobiWindows8FacebookTemplate
 {
     public partial class App : global::Windows.UI.Xaml.Markup.IXamlMetadataProvider
     {
-        private global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        private global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlTypeInfoProvider _provider;
 
         public global::Windows.UI.Xaml.Markup.IXamlType GetXamlType(global::System.Type type)
         {
             if(_provider == null)
             {
-                _provider = new global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlTypeInfoProvider();
+                _provider = new global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlTypeInfoProvider();
             }
             return _provider.GetXamlTypeByType(type);
         }
@@ -28,7 +28,7 @@ namespace AppMobiWindow8Template
         {
             if(_provider == null)
             {
-                _provider = new global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlTypeInfoProvider();
+                _provider = new global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlTypeInfoProvider();
             }
             return _provider.GetXamlTypeByName(fullName);
         }
@@ -40,7 +40,7 @@ namespace AppMobiWindow8Template
     }
 }
 
-namespace appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo
+namespace AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo
 {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks", "4.0.0.0")]    
@@ -112,36 +112,36 @@ namespace appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo
             }
         }
 
-        private object Activate_0_AppMobiView() { return new global::appMobiFacebookTemplate.UserControls.AppMobiView(); }
+        private object Activate_0_AppMobiView() { return new global::AppMobiWindows8FacebookTemplate.UserControls.AppMobiView(); }
 
-        private object Activate_2_AppMobiPage() { return new global::AppMobiWindow8Template.AppMobiPage(); }
+        private object Activate_2_AppMobiPage() { return new global::AppMobiWindows8FacebookTemplate.AppMobiPage(); }
 
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(string typeName)
         {
-            global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlSystemBaseType xamlType = null;
-            global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlUserType userType;
+            global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlSystemBaseType xamlType = null;
+            global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlUserType userType;
 
             switch (typeName)
             {
             case "Windows.UI.Xaml.Controls.UserControl":
-                xamlType = new global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.UserControl));
+                xamlType = new global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.UserControl));
                 break;
 
             case "Windows.UI.Xaml.Controls.WebView":
-                xamlType = new global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.WebView));
+                xamlType = new global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.WebView));
                 break;
 
             case "Object":
-                xamlType = new global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::System.Object));
+                xamlType = new global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::System.Object));
                 break;
 
             case "Windows.UI.Xaml.Controls.Page":
-                xamlType = new global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.Page));
+                xamlType = new global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlSystemBaseType(typeName, typeof(global::Windows.UI.Xaml.Controls.Page));
                 break;
 
-            case "appMobiFacebookTemplate.UserControls.AppMobiView":
-                userType = new global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::appMobiFacebookTemplate.UserControls.AppMobiView), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
+            case "AppMobiWindows8FacebookTemplate.UserControls.AppMobiView":
+                userType = new global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::AppMobiWindows8FacebookTemplate.UserControls.AppMobiView), GetXamlTypeByName("Windows.UI.Xaml.Controls.UserControl"));
                 userType.Activator = Activate_0_AppMobiView;
                 userType.AddMemberName("Browser");
                 userType.AddMemberName("StartPageUri");
@@ -149,12 +149,12 @@ namespace appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo
                 break;
 
             case "System.Uri":
-                userType = new global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Uri), GetXamlTypeByName("Object"));
+                userType = new global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::System.Uri), GetXamlTypeByName("Object"));
                 xamlType = userType;
                 break;
 
-            case "AppMobiWindow8Template.AppMobiPage":
-                userType = new global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::AppMobiWindow8Template.AppMobiPage), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+            case "AppMobiWindows8FacebookTemplate.AppMobiPage":
+                userType = new global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlUserType(this, typeName, typeof(global::AppMobiWindows8FacebookTemplate.AppMobiPage), GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_2_AppMobiPage;
                 xamlType = userType;
                 break;
@@ -166,36 +166,36 @@ namespace appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo
 
         private object get_0_AppMobiView_Browser(object instance)
         {
-            var that = (global::appMobiFacebookTemplate.UserControls.AppMobiView)instance;
+            var that = (global::AppMobiWindows8FacebookTemplate.UserControls.AppMobiView)instance;
             return that.Browser;
         }
         private object get_1_AppMobiView_StartPageUri(object instance)
         {
-            var that = (global::appMobiFacebookTemplate.UserControls.AppMobiView)instance;
+            var that = (global::AppMobiWindows8FacebookTemplate.UserControls.AppMobiView)instance;
             return that.StartPageUri;
         }
         private void set_1_AppMobiView_StartPageUri(object instance, object Value)
         {
-            var that = (global::appMobiFacebookTemplate.UserControls.AppMobiView)instance;
+            var that = (global::AppMobiWindows8FacebookTemplate.UserControls.AppMobiView)instance;
             that.StartPageUri = (global::System.Uri)Value;
         }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
-            global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlMember xamlMember = null;
-            global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlUserType userType;
+            global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlMember xamlMember = null;
+            global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlUserType userType;
 
             switch (longMemberName)
             {
-            case "appMobiFacebookTemplate.UserControls.AppMobiView.Browser":
-                userType = (global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlUserType)GetXamlTypeByName("appMobiFacebookTemplate.UserControls.AppMobiView");
-                xamlMember = new global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlMember(this, "Browser", "Windows.UI.Xaml.Controls.WebView");
+            case "AppMobiWindows8FacebookTemplate.UserControls.AppMobiView.Browser":
+                userType = (global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AppMobiWindows8FacebookTemplate.UserControls.AppMobiView");
+                xamlMember = new global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlMember(this, "Browser", "Windows.UI.Xaml.Controls.WebView");
                 xamlMember.Getter = get_0_AppMobiView_Browser;
                 xamlMember.SetIsReadOnly();
                 break;
-            case "appMobiFacebookTemplate.UserControls.AppMobiView.StartPageUri":
-                userType = (global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlUserType)GetXamlTypeByName("appMobiFacebookTemplate.UserControls.AppMobiView");
-                xamlMember = new global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlMember(this, "StartPageUri", "System.Uri");
+            case "AppMobiWindows8FacebookTemplate.UserControls.AppMobiView.StartPageUri":
+                userType = (global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlUserType)GetXamlTypeByName("AppMobiWindows8FacebookTemplate.UserControls.AppMobiView");
+                xamlMember = new global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlMember(this, "StartPageUri", "System.Uri");
                 xamlMember.Getter = get_1_AppMobiView_StartPageUri;
                 xamlMember.Setter = set_1_AppMobiView_StartPageUri;
                 break;
@@ -254,9 +254,9 @@ namespace appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks", "4.0.0.0")]    
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    internal class XamlUserType : global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlSystemBaseType
+    internal class XamlUserType : global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlSystemBaseType
     {
-        global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlTypeInfoProvider _provider;
         global::Windows.UI.Xaml.Markup.IXamlType _baseType;
         bool _isArray;
         bool _isMarkupExtension;
@@ -268,7 +268,7 @@ namespace appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo
         global::System.Collections.Generic.Dictionary<string, string> _memberNames;
         global::System.Collections.Generic.Dictionary<string, object> _enumValues;
 
-        public XamlUserType(global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
+        public XamlUserType(global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
             :base(fullName, fullType)
         {
             _provider = provider;
@@ -449,7 +449,7 @@ namespace appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo
     [System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class XamlMember : global::Windows.UI.Xaml.Markup.IXamlMember
     {
-        global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlTypeInfoProvider _provider;
         string _name;
         bool _isAttachable;
         bool _isDependencyProperty;
@@ -458,7 +458,7 @@ namespace appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo
         string _typeName;
         string _targetTypeName;
 
-        public XamlMember(global::appMobiFacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
+        public XamlMember(global::AppMobiWindows8FacebookTemplate.appMobiFacebookTemplate_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
         {
             _name = name;
             _typeName = typeName;

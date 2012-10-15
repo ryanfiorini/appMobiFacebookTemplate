@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace appMobiFacebookTemplate.Helpers
+namespace AppMobiWindows8FacebookTemplate.Helpers
 {
     public class ErrorHandler
     {
@@ -45,7 +45,11 @@ namespace appMobiFacebookTemplate.Helpers
 
         [ErrorNumber("E000203")]
         [ErrorDescription("Facebook Get Failed: User is not logged in.")]
-        E000203
+        E000203,
+
+        [ErrorNumber("E000204")]
+        [ErrorDescription("Navigation Failed.")]
+        E000204
     }
 
     [AttributeUsage(AttributeTargets.All)]

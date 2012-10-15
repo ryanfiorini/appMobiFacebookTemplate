@@ -1,0 +1,120 @@
+/****************************************************
+	GENERAL RULES 
+*****************************************************/
+html { 
+	height: 100%
+	overflow-x: hidden;
+}
+
+* { 
+	margin: 0; padding: 0;
+	border: none;
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; 
+}
+
+img, a img { border: none; }
+
+body { background: #131D26; }
+
+#jQUi {
+	display: block;
+	max-width: 872px; height: 100%;
+	margin: 0 auto;
+}
+
+.clear { clear: both; }
+
+#not-logged-in, #logged-in {
+    display:none;
+}
+/****************************************************
+	EMBEDDED DEMO AREA
+*****************************************************/
+
+.demo_area {
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+	padding: 20px;
+	background: #131D26;
+}
+
+
+/****************************************************
+	 TILES
+*****************************************************/
+
+.navTile {
+	display: block;
+	float:left;
+	position: relative;
+	width: 256px; height: 174px;
+	margin: 5px;
+	background-color: rgba(255,255,255,.2);
+	-moz-transition: all 0.25s ease-out; -webkit-transition: all 0.25s ease-out; transition: all 0.25s ease-out;
+}
+.navTile:hover, .navTile:focus { background-color: rgba(255,255,255,.33); }
+
+.navTile.lg {
+	width: 522px !important; height: 358px !important;
+	/*display: block;
+	float:left;
+	position: relative;
+	margin: 5px;
+	background-color: rgba(255,255,255,.2);
+	-moz-transition: all 0.25s ease-out; -webkit-transition: all 0.25s ease-out; transition: all 0.25s ease-out;*/
+}
+.navTile.lg:hover, .navTile.lg:focus { background-color: rgba(255,255,255,.33); }
+
+.navTile p {
+	float:left;
+	position: absolute;
+	bottom: 12px; left: 12px;
+	font: normal 15px/15px Arial, sans-serif;
+	color: rgba(255,255,255,.85); 
+	text-decoration: none;
+}
+
+.tileIcon {
+	display: block;
+	height: 86px;
+	top: 20%;
+	position: relative;
+	margin: auto;
+	background: url('images/fb_icon_sprite.png') no-repeat;
+}
+.tileIcon.getID  { width: 86px; background-position: 0 0; }
+.tileIcon.getFriends { width: 100px; background-position: -86px 0; }
+.tileIcon.post { width: 90px; background-position: -186px 0; }
+.tileIcon.message { width: 80px; background-position: -276px 0; }
+.tileIcon.appRequest  { width: 76px; background-position: -356px 0; }
+.tileIcon.logOut { width: 60px; background-position: -432px 0; }
+
+.tileIconLogin {
+	display: block;
+	width:112px; height: 146px;
+	top: 25%;
+	position: relative;
+	margin: auto;
+	background: url('images/login.png') no-repeat;
+}
+
+.infoTile {
+	display: block;
+	float: left;
+	position: relative;
+	width: 256px; height: 174px;
+	padding: 10px 12px;
+	margin: 5px;
+	background-color: rgba(255,255,255,.2);
+}
+
+.infoTile p {
+	float:left;
+	position: absolute;
+	bottom: 0; left: 12px;
+	font: normal 15px/15px Arial, sans-serif;
+	color: rgba(255,255,255,.85); 
+	text-decoration: none;
+}

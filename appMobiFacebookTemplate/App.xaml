@@ -1,8 +1,8 @@
 ﻿<Application
-    x:Class="AppMobiWindow8Template.App"
+    x:Class="AppMobiWindows8FacebookTemplate.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:AppMobiWindow8Template">
+    xmlns:local="using:AppMobiWindows8FacebookTemplate">
 
     <Application.Resources>
         <ResourceDictionary>

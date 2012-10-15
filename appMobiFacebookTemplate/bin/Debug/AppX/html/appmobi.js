@@ -1811,7 +1811,6 @@ AppMobi.FacebookInternal.prototype.callbackComplete = function()
 
 AppMobi.FacebookInternal.prototype.login = function(scope)
 {
-    debugger;
 	var args = "scope=" + ((typeof (scope) == "undefined" || scope.length == 0) ? "publish_stream,publish_actions,offline_access" : scope);
 
     AppMobi.facebook.internal.apiCall('login', args, 'login');
@@ -1827,7 +1826,6 @@ AppMobi.FacebookInternal.prototype.appRequest = function(params)
 
 AppMobi.FacebookInternal.prototype.api = function(path, httpMethod, parameters)
 {
-    debugger;
     //FBData = {'path':path, 'parameters':parameters, 'method': httpMethod};
 	//dataToSend = encodeURIComponent(emu_core.Base64.encode(JSON.stringify(FBData)));
 	//this.setCommunicationFrameUrl("http://fb.appmobi.com/facebook/default.aspx?cmd=fbxdk&appname="+AppMobi.app+"&data="+dataToSend+"&type=api");
@@ -1905,7 +1903,6 @@ AppMobi.FacebookInternal.prototype.handleResponse = function(eventName,success,r
 
 AppMobi.FacebookInternal.prototype.apiCall = function(func,args,responseType)
 {
-    debugger;
     var apiDat = "func=" + func + "&responseType=" + responseType;
     if (args != null && args.length > 0)
         apiDat += "&" + args;

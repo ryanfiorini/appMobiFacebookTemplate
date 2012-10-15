@@ -7,7 +7,7 @@
     <ProjectGuid>{DC614185-F124-4755-B23C-2DC8B9F9A610}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>appMobiFacebookTemplate</RootNamespace>
+    <RootNamespace>AppMobiWindows8FacebookTemplate</RootNamespace>
     <AssemblyName>appMobiFacebookTemplate1</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
@@ -192,8 +192,11 @@
     <Content Include="html\jq.mobi.min.js" />
     <Content Include="html\kitchensink\ajax.html" />
     <Content Include="html\kitchensink\external.html" />
+    <Content Include="html\kitchensink\fb_demo.css" />
     <Content Include="html\kitchensink\icons.css" />
     <Content Include="html\kitchensink\images\badge.png" />
+    <Content Include="html\kitchensink\images\fb_icon_sprite.png" />
+    <Content Include="html\kitchensink\images\login.png" />
     <Content Include="html\kitchensink\images\splash.png" />
     <Content Include="html\kitchensink\jq.ui.carbon.css" />
     <Content Include="html\kitchensink\jq.ui.css" />
@@ -251,8 +254,8 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\AppMobiView.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -260,6 +263,7 @@
       <HintPath>..\..\facebook-windows8-sample\src\packages\Facebook.6.0.22\lib\WinRT\Facebook.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>

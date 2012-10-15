@@ -14,11 +14,11 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using appMobiFacebookTemplate.Helpers;
+using AppMobiWindows8FacebookTemplate.Helpers;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace appMobiFacebookTemplate.UserControls
+namespace AppMobiWindows8FacebookTemplate.UserControls
 {
     public partial class AppMobiView : UserControl
     {        /// <summary>
@@ -69,70 +69,6 @@ namespace appMobiFacebookTemplate.UserControls
             set
             {
                 _startPageUri = value;
-            }
-        }
-
-        void webView_ScriptNotify(object sender, NotifyEventArgs e)
-        {
-            string commandStr = e.Value;
-
-            if (commandStr.IndexOf("MESSAGE") == 0)
-            {
-                commandStr = commandStr.Replace("MESSAGE:", "");
-                Debug.WriteLine("MESSAGE :: " + commandStr);
-                return;
-            }
-
-            Dictionary<string,string> dict = commandStr.Split(new[] { '&' }, StringSplitOptions.RemoveEmptyEntries)
-               .Select(part => part.Split('='))
-               .ToDictionary(split => split[0], split => split[1]);
-
-            if (dict["type"].Equals("FBPost"))
-            {
-                commandStr = commandStr.Replace("MESSAGE:", "");
-                Debug.WriteLine("MESSAGE :: " + commandStr);
-            }
-            else if (dict["type"].Equals("FBUI"))
-            {
-                commandStr = commandStr.Replace("MESSAGE:", "");
-                Debug.WriteLine("MESSAGE :: " + commandStr);
-
-                if (dict["method"].Equals("feed"))
-                {
-                    ShowDialog(dict);
-                }
-                else if (dict["method"].Equals("send"))
-                {
-                    ShowDialog(dict);
-                }
-                else if (dict["method"].Equals("apprequests"))
-                {
-                    ShowDialog(dict);
-                }
-            }
-            else if (dict["type"].Equals("FBAPI"))
-            {
-                if (dict["func"].Equals("login"))
-                {
-                    Login(dict["app_id"], (dict["scope"].Length > 1 && dict["scope"] != null) ? dict["scope"] : ExtendedPermissions);
-                }
-                else if (dict["func"].Equals("logout"))
-                {
-                    Logout();
-                }
-                else if (dict["func"].Equals("feed"))
-                {
-                    if (dict["httpMethod"].Equals("GET"))
-                        GetUserData(dict);
-                    else
-                        PostUserData(dict);
-                }
-                else
-                {
-                    commandStr = commandStr.Replace("MESSAGE:", "");
-                    Debug.WriteLine("MESSAGE :: " + commandStr);
-
-                }
             }
         }
 
@@ -271,7 +207,8 @@ namespace appMobiFacebookTemplate.UserControls
                 _lastMessageId = result.id;
                 
                 ScriptResponse sr = new ScriptResponse { Message = "Facebook Post Successful", ResponseCode = "" };
-                string js = "(function(){ AppMobi.facebook.internal.handleResponse('dialog.complete',true," + sr.ToJson() + ")})();";
+                //string js = "(function(){ AppMobi.facebook.internal.handleResponse('dialog.complete',true," + sr.ToJson() + ")})();";
+                string js = "javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.request.response',true,true);e.success=true;e.raw='" + sr.ToJson() + "';e.data={};try{e.data=JSON.parse(e.raw);}catch(ex){}e.error='';document.dispatchEvent(e);";
                 InjectJS(js);
             }
             catch (FacebookApiException ex)
@@ -323,8 +260,81 @@ namespace appMobiFacebookTemplate.UserControls
             webViewFB.Visibility = Windows.UI.Xaml.Visibility.Visible;
         }
 
+        #region webView Handlers
+        private void webView_ScriptNotify(object sender, NotifyEventArgs e)
+        {
+            string commandStr = e.Value;
+
+            if (commandStr.IndexOf("MESSAGE") == 0)
+            {
+                commandStr = commandStr.Replace("MESSAGE:", "");
+                Debug.WriteLine("MESSAGE :: " + commandStr);
+                return;
+            }
+
+            Dictionary<string, string> dict = commandStr.Split(new[] { '&' }, StringSplitOptions.RemoveEmptyEntries)
+               .Select(part => part.Split('='))
+               .ToDictionary(split => split[0], split => split[1]);
+
+            if (dict["type"].Equals("FBPost"))
+            {
+                commandStr = commandStr.Replace("MESSAGE:", "");
+                Debug.WriteLine("MESSAGE :: " + commandStr);
+            }
+            else if (dict["type"].Equals("FBUI"))
+            {
+                commandStr = commandStr.Replace("MESSAGE:", "");
+                Debug.WriteLine("MESSAGE :: " + commandStr);
+
+                if (dict["method"].Equals("feed"))
+                {
+                    ShowDialog(dict);
+                }
+                else if (dict["method"].Equals("send"))
+                {
+                    ShowDialog(dict);
+                }
+                else if (dict["method"].Equals("apprequests"))
+                {
+                    ShowDialog(dict);
+                }
+            }
+            else if (dict["type"].Equals("FBAPI"))
+            {
+                if (dict["func"].Equals("login"))
+                {
+                    Login(dict["app_id"], (dict["scope"].Length > 1 && dict["scope"] != null) ? dict["scope"] : ExtendedPermissions);
+                }
+                else if (dict["func"].Equals("logout"))
+                {
+                    Logout();
+                }
+                else if (dict["func"].Equals("feed"))
+                {
+                    if (dict["httpMethod"].Equals("GET"))
+                        GetUserData(dict);
+                    else
+                        PostUserData(dict);
+                }
+                else
+                {
+                    commandStr = commandStr.Replace("MESSAGE:", "");
+                    Debug.WriteLine("MESSAGE :: " + commandStr);
+
+                }
+            }
+        }
+
         private void webView_NavigationFailed(object sender, WebViewNavigationFailedEventArgs e)
         {
+            busy = false;
+            dialogLoadComplete = false;
+            lastUri = null;
+            webViewFB.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+
+            ScriptResponse sr = ErrorHandler.setupErrorResponse(ErrorsEnum.E000204);
+            string js = string.Format("javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.request.response',true,true);e.success=false;e.error='{0}';e.raw='';e.data={{}};document.dispatchEvent(e);", sr.Message);
+            InjectJS(js);
         }
 
         private void webView_Loaded(object sender, RoutedEventArgs e)
@@ -398,10 +408,19 @@ namespace appMobiFacebookTemplate.UserControls
             else
             {
                 // user cancelled
+                busy = false;
+                dialogLoadComplete = false;
+                lastUri = null;
+                webViewFB.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
                 string js = "javascript: var e = document.createEvent('Events');e.initEvent('appMobi.facebook.request.response',true,true);e.success=false;e.error='login failed';e.raw='';e.data={};document.dispatchEvent(e);";
                 InjectJS(js);
             }
         }
+
+        private void webView_LayoutUpdated(object sender, object e)
+        {
+        }
+        #endregion
 
         private async void LoginSucceded(string accessToken)
         {
@@ -433,9 +452,5 @@ namespace appMobiFacebookTemplate.UserControls
             webView.InvokeScript("execScript", new string[] { js });
         }
 
-        private void webView_LayoutUpdated(object sender, object e)
-        {
-            string ryan = "val";
-        }
     }
 }

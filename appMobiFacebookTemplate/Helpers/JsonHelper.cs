@@ -4,7 +4,7 @@ using System.Runtime.Serialization.Json;
 using System.Text;
 
 
-namespace appMobiFacebookTemplate.Helpers
+namespace AppMobiWindows8FacebookTemplate.Helpers
 {
     public static class JsonHelper
     {

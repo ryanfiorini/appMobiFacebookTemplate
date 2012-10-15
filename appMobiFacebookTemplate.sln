@@ -43,6 +43,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "RyanFacebookApp", "..\..\..
 		VWDPort = "49998"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMobiClassLibrary", "AppMobiClassLibrary\AppMobiClassLibrary.csproj", "{32FA6F94-3FB4-4C42-9A52-21EF2AD7B234}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,22 @@ Global
 		{9B05F097-A74A-4D1F-B141-0DE1FCEA2A60}.Release|ARM.ActiveCfg = Debug|Any CPU
 		{9B05F097-A74A-4D1F-B141-0DE1FCEA2A60}.Release|x64.ActiveCfg = Debug|Any CPU
 		{9B05F097-A74A-4D1F-B141-0DE1FCEA2A60}.Release|x86.ActiveCfg = Debug|Any CPU
+		{32FA6F94-3FB4-4C42-9A52-21EF2AD7B234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32FA6F94-3FB4-4C42-9A52-21EF2AD7B234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32FA6F94-3FB4-4C42-9A52-21EF2AD7B234}.Debug|ARM.ActiveCfg = Debug|ARM
+		{32FA6F94-3FB4-4C42-9A52-21EF2AD7B234}.Debug|ARM.Build.0 = Debug|ARM
+		{32FA6F94-3FB4-4C42-9A52-21EF2AD7B234}.Debug|x64.ActiveCfg = Debug|x64
+		{32FA6F94-3FB4-4C42-9A52-21EF2AD7B234}.Debug|x64.Build.0 = Debug|x64
+		{32FA6F94-3FB4-4C42-9A52-21EF2AD7B234}.Debug|x86.ActiveCfg = Debug|x86
+		{32FA6F94-3FB4-4C42-9A52-21EF2AD7B234}.Debug|x86.Build.0 = Debug|x86
+		{32FA6F94-3FB4-4C42-9A52-21EF2AD7B234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32FA6F94-3FB4-4C42-9A52-21EF2AD7B234}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32FA6F94-3FB4-4C42-9A52-21EF2AD7B234}.Release|ARM.ActiveCfg = Release|ARM
+		{32FA6F94-3FB4-4C42-9A52-21EF2AD7B234}.Release|ARM.Build.0 = Release|ARM
+		{32FA6F94-3FB4-4C42-9A52-21EF2AD7B234}.Release|x64.ActiveCfg = Release|x64
+		{32FA6F94-3FB4-4C42-9A52-21EF2AD7B234}.Release|x64.Build.0 = Release|x64
+		{32FA6F94-3FB4-4C42-9A52-21EF2AD7B234}.Release|x86.ActiveCfg = Release|x86
+		{32FA6F94-3FB4-4C42-9A52-21EF2AD7B234}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
