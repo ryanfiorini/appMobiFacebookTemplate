@@ -188,9 +188,9 @@
             redirect_uri: 'http://fb.appmobi.com/facebook/default.aspx'
         }, function (responseObject) {
             if (responseObject != null && responseObject.success) {
-                $("#sendResponse").text("post successful");
+                $("#sendResponse").text("send successful");
             } else {
-                $("#sendResponse").text("post failed");
+                $("#sendResponse").text("send failed");
             }
         });
     }
@@ -202,9 +202,9 @@
             redirect_uri: 'http://fb.appmobi.com/facebook/default.aspx'
         }, function (responseObject) {
             if (responseObject != null && responseObject.success) {
-                $("#appRequestResponse").text("post successful");
+                $("#appRequestResponse").text("request successful");
             } else {
-                $("#appRequestResponse").text("post failed");
+                $("#appRequestResponse").text("request failed");
             }
         });
     }
@@ -255,7 +255,7 @@
 	<div title='Welcome' id="main" class="panel" selected="true" data-load="loadedPanel" data-unload="unloadedPanel" data-tab="navbar_home">
 
         <div id="splashscreen" class='demo_area'>
-            <div class="infoTile" href="#" style="background:#333 !important;">
+            <div class="infoTile" style="background:#333 !important;">
                 <p style="text-align:right; color:#999; font-style:italic; font-size:13px; top:12px; right:12px;">Loading app ...</p>
             </div>
         </div>
