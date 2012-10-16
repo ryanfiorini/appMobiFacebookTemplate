@@ -113,6 +113,8 @@
     // These need to be filled in based on you Facebook app 
     var appName = "Ryan Win8 Template";
     var appCaption = "Just a test of my appMobi Win 8 Template posting a message!";
+    var appUrl = "http://apps.facebook.com/RyanWin8Template/";
+    var redirect_uri = "http://fb.appmobi.com/facebook/default.aspx";
     // ------------------------------------------------------------------------------------
 
     function facebookLogin() {
@@ -182,7 +184,7 @@
         var objParameters = {
             "name": appName,
             "caption": "GRAPH: " + appCaption,
-            "link": "http://apps.facebook.com/RyanWin8Template/",
+            "link": appUrl,
             "picture": "http://dev.appmobi.com/documentation/images/possums.jpg",
             "message": "just a test"
         };
@@ -190,7 +192,7 @@
     }
 
     function postFeedCallback(e) {
-        console.log("News Feed Event Returned"); 
+        console.log("Post Event Returned"); 
         if (e.success == true) {
             $("#postFeedResponse").text("post successful");
             document.removeEventListener("appMobi.facebook.dialog.complete", postFeedCallback, false);
@@ -204,16 +206,15 @@
         var objParameters = {
             "name": appName,
             "caption": "DIALOG: " + appCaption,
-            "link": "http://apps.facebook.com/RyanWin8Template/",
+            "link": appUrl,
             "picture": "http://dev.appmobi.com/documentation/images/possums.jpg",
-            "redirect_uri": "http://fb.appmobi.com/facebook/default.aspx"
+            "redirect_uri": redirect_uri
         }
         AppMobi.facebook.showNewsFeedDialog(objParameters);
     }
 
     function postSendCallback(e) {
-        debugger;
-        console.log("News Feed Event Returned");
+        console.log("Post Event Returned");
         if (e.success == true) {
             $("#sendResponse").text("post successful");
             document.removeEventListener("appMobi.facebook.dialog.complete", postSendCallback, false);
@@ -228,7 +229,7 @@
             method: 'send',
             name: 'Make Webapps your HTML5 Expertise',
             link: 'http://www.appmobi.com/?page_id%3D119',
-            redirect_uri: 'http://fb.appmobi.com/facebook/default.aspx'
+            redirect_uri: redirect_uri
         }
         AppMobi.facebook.showAppRequestDialog(objParameters);
     }
@@ -237,6 +238,7 @@
         console.log("Permissions Request Returned"); 
         if (e.success == true) { 
             $("#appRequestResponse").text("request successful");
+            document.removeEventListener("appMobi.facebook.dialog.complete", appRequestCallback, false);
         } else {
             $("#appRequestResponse").text("request failed");
         }
@@ -246,8 +248,8 @@
         //var objParameters = { "to": "USER_ID_HERE", "message": "My Awesome Message", "title": "A title for this dialog would go here" }
         var objParameters = {
             method: 'apprequests',
-            message: 'My Great Win 8 Template Test',
-            redirect_uri: 'http://fb.appmobi.com/facebook/default.aspx'
+            message: 'My Great Windows 8 Template Test',
+            redirect_uri: redirect_uri
         };
 
         AppMobi.facebook.showAppRequestDialog(objParameters);
