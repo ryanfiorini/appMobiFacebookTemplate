@@ -35,10 +35,10 @@
 	.jqmscrollBar {background:white !important;}	
 	
 </style>
-<script type="text/javascript" charset="utf-8" src="appmobi_local_bootstrap.js"></script> 
+<script type="text/javascript" charset="utf-8" src="_appMobi/appmobi_local_bootstrap.js"></script> 
 
-<script type="text/javascript" charset="utf-8" src="jq.mobi.js"></script> 
-<script type="text/javascript" charset="utf-8" src="facebook.js"></script> 
+<script type="text/javascript" charset="utf-8" src="_appMobi/jq.mobi.js"></script> 
+<script type="text/javascript" charset="utf-8" src="_appMobi/facebook.js"></script> 
 
 <script>
     function loadedPanel(what) {
@@ -48,12 +48,6 @@
         console.log("unloaded " + what.id);
     }
 
-    if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
-        var script = document.createElement("script");
-        script.src = "plugins/jq.desktopBrowsers.js";
-        var tag = $("head").append(script);
-        $.os.desktop = true;
-    }
     var oldElem = "default";
     function setActiveStyleSheet(title) {
         var a = document.getElementsByTagName("link");
@@ -115,11 +109,68 @@
         { alert("Unsuccessful Logout"); }
     }, false);*/
 
+
+    // ------------------------------------------------------------------------------------
+    // These need to be filled in based on you Facebook app 
+    var appName = "Ryan Win8 Template";
+    var appCaption = "Just a test of my appMobi Win 8 Template posting a message!";
+    // ------------------------------------------------------------------------------------
+
+    function facebookLogin() {
+        document.addEventListener("appMobi.facebook.login", function (e) {
+            if (e.success == true)
+            {
+                $("#logged-in").show();
+                $("#not-logged-in").hide();
+            }
+            else
+            { console.log("Unsuccessful Login"); }
+        }, false);
+        AppMobi.facebook.login("publish_stream,publish_actions,offline_access");
+    }
+
+    function getUserCallback(e) {
+        console.log("Facebook User Friends Data Returned");
+        if (e.success == true) {
+            var data = e.data;
+            $("#userInfo").text("hi " + data.first_name + " " + data.last_name + " (" + data.username + ")");
+            document.removeEventListener("appMobi.facebook.request.response", getUserCallback, false);
+        } else {
+            $("#userInfo").text("user info not found");
+        }
+    }
+    function facebookGetUser() {
+        var facebookUserID = "me";  //me = the user currently logged into Facebook
+        document.addEventListener("appMobi.facebook.request.response", getUserCallback, false);
+        AppMobi.facebook.requestWithGraphAPI(facebookUserID, "GET", "");
+    }
+
+    function getFriendsCallback(e) {
+        console.log("Facebook User Friends Data Returned");
+        if (e.success == true) {
+            var data = e.data.data;
+            var outHTML = "";
+            /*for (var r = 0; r < data.length; r++) {
+                outHTML += "<img src='http://graph.facebook.com/" + data[r]["id"]
+                + "/picture' info='" + data[r]["name"] + "' />";
+
+            }*/
+            $("#friendCount").text(data.length + " friends");
+            document.removeEventListener("appMobi.facebook.request.response", getFriendsCallback, false);
+        } else {
+            $("#friendCount").text("user info not found");
+        }
+    }
+    function facebookGetFriends() {
+        var facebookUserID = "me";  //me = the user currently logged into Facebook
+        document.addEventListener("appMobi.facebook.request.response", getFriendsCallback, false);
+        AppMobi.facebook.requestWithGraphAPI(facebookUserID + "/friends", "GET", "");
+    }
+
     function facebookPostGraph() {
-        //name,picture,caption,description,link
         facebookAPI.requestWithGraphAPI("/me/feed", "POST", {
-            "name": "Ryan Win8 Template",
-            "caption": "GRAPH: Just a test of my appMobi Win 8 Template posting a message!",
+            "name": appName,
+            "caption": "GRAPH: " + appCaption,
             "link": "http://apps.facebook.com/RyanWin8Template/",
             "picture": "http://dev.appmobi.com/documentation/images/possums.jpg",
             "message": "just a test"
@@ -132,12 +183,10 @@
         });
     }
 
-
     function facebookPostFeed() {
-        //name,picture,caption,description,link
         facebookAPI.newsFeedDialog({
-            "name": "Ryan Win8 Template",
-            "caption": "DIALOG: Just a test of my appMobi Win 8 Template posting a message!",
+            "name": appName,
+            "caption": "DIALOG: " + appCaption,
             "link": "http://apps.facebook.com/RyanWin8Template/",
             "picture": "http://dev.appmobi.com/documentation/images/possums.jpg",
             "redirect_uri": "http://fb.appmobi.com/facebook/default.aspx"
@@ -146,36 +195,6 @@
                 $("#postFeedResponse").text("post successful");
             } else {
                 $("#postFeedResponse").text("post failed");
-            }
-        });
-    }
-
-    function facebookLogin() {
-        facebookAPI.login(function (responseObject) {
-            //alert('in callback handler: ' + responseObject.data.Message);
-            if (responseObject.success) {
-                $("#logged-in").show();
-                $("#not-logged-in").hide();
-            }
-        });
-    }
-
-    function facebookGetUser() {
-        facebookAPI.getUser(function (responseObject) {
-            if (responseObject != null) {
-                $("#userInfo").text("hi " + responseObject.first_name + " " + responseObject.last_name + " (" + responseObject.username + ")");
-            } else {
-                $("#userInfo").text("user info not found");
-            }
-        });
-    }
-
-    function facebookGetFriends() {
-        facebookAPI.friends("", function (responseObject) {
-            if (responseObject != null && responseObject.data && responseObject.data.length > 0) {
-                $("#friendCount").text(responseObject.data.length + " friends");
-            } else {
-                $("#friendCount").text("no friends found");
             }
         });
     }
@@ -195,8 +214,26 @@
         });
     }
 
+    function appRequestCallback(e) {
+        console.log("Permissions Request Returned"); 
+        if (e.success == true) { 
+            $("#appRequestResponse").text("request successful");
+        } else {
+            $("#appRequestResponse").text("request failed");
+        }
+    }
     function facebookAppRequestDialog() {
-        facebookAPI.showAppRequestDialog({
+        document.addEventListener("appMobi.facebook.dialog.complete", appRequestCallback, false); 
+        //var objParameters = { "to": "USER_ID_HERE", "message": "My Awesome Message", "title": "A title for this dialog would go here" }
+        var objParameters = {
+            method: 'apprequests',
+            message: 'My Great Win 8 Template Test',
+            redirect_uri: 'http://fb.appmobi.com/facebook/default.aspx'
+        };
+
+        AppMobi.facebook.showAppRequestDialog(objParameters);
+
+        /*facebookAPI.showAppRequestDialog({
             method: 'apprequests',
             message: 'My Great Win 8 Template Test',
             redirect_uri: 'http://fb.appmobi.com/facebook/default.aspx'
@@ -206,22 +243,26 @@
             } else {
                 $("#appRequestResponse").text("request failed");
             }
-        });
+        });*/
     }
 
     function facebookLogout() {
-        //AppMobi.facebook.logout();
-        facebookAPI.logout(function (message) {
-            $("#logged-in").hide();
-            $("#not-logged-in").show();
-        });
+        document.addEventListener("appMobi.facebook.logout", function (e) {
+            if (e.success == true)  
+            { 
+                $("#logged-in").hide();
+                $("#not-logged-in").show();
+            }  
+            else  
+            { console.log("Unsuccessful Logout"); } 
+        },false);  
+        AppMobi.facebook.logout();
     }
     //  FACEBOOK Implementation END
 
 </script>
 
 <script type="text/javascript">
-    /* This function runs once the page is loaded, but appMobi is not yet active */
     var webRoot = "html/";
 
     /* This code is used to run as soon as appMobi activates */
@@ -243,7 +284,6 @@
 
         $("#splashscreen").hide();
         $("#not-logged-in").show();
-
     };
     document.addEventListener("appMobi.device.ready", onDeviceReady, false);
 
@@ -329,8 +369,6 @@
     </div>
 </div>
 
-
-<iframe id="appMobi_Facebook_Communication_Frame" style="display: none; width: 100%; height: 100%; top: 0px; left: 0px; position: absolute; z-index: 2147483647; " src=""></iframe>
 
 </body>
 </html>

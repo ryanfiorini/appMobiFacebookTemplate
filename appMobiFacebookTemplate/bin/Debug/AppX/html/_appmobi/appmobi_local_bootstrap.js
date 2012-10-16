@@ -40,7 +40,7 @@ function loadWebScript() {
 		if(debug) console.log('got cloud-based appmobi.js');
 	}
 	//script.src = "https://d3ezoyt41ban9s.cloudfront.net/javascript/web/3.4.0/appmobi.js";
-	script.src = "appmobi.js";
+	script.src = "_appMobi/appmobi.js";
 	head.appendChild(script);
 }
 
