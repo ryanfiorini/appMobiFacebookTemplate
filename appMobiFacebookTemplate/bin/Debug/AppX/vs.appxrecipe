@@ -22,11 +22,11 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\bin\Debug\appMobiFacebookTemplate1.exe">
       <PackagePath>appMobiFacebookTemplate1.exe</PackagePath>
-      <Modified>2012-10-16T17:53:53.516</Modified>
+      <Modified>2012-10-16T19:21:22.417</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\bin\Debug\appMobiFacebookTemplate1.pdb">
       <PackagePath>appMobiFacebookTemplate1.pdb</PackagePath>
-      <Modified>2012-10-16T17:53:53.466</Modified>
+      <Modified>2012-10-16T19:21:22.378</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\facebook-windows8-sample\src\packages\Facebook.6.0.22\lib\WinRT\Facebook.dll">
       <PackagePath>Facebook.dll</PackagePath>
@@ -78,7 +78,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\index.html">
       <PackagePath>html\index.html</PackagePath>
-      <Modified>2012-10-16T18:24:50.119</Modified>
+      <Modified>2012-10-16T19:42:39.167</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\fb_demo.css">
       <PackagePath>html\fb_demo.css</PackagePath>

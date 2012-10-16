@@ -38,7 +38,6 @@
 <script type="text/javascript" charset="utf-8" src="_appMobi/appmobi_local_bootstrap.js"></script> 
 
 <script type="text/javascript" charset="utf-8" src="_appMobi/jq.mobi.js"></script> 
-<script type="text/javascript" charset="utf-8" src="_appMobi/facebook.js"></script> 
 
 <script>
     function loadedPanel(what) {
@@ -167,51 +166,70 @@
         AppMobi.facebook.requestWithGraphAPI(facebookUserID + "/friends", "GET", "");
     }
 
+    function postGraphCallback(e) {
+        console.log("Facebook graph post Returned");
+        if (e.success == true) {
+            var data = e.data;
+            $("#postGraphResponse").text(data.Message);
+            document.removeEventListener("appMobi.facebook.request.response", postGraphCallback, false);
+        } else {
+            $("#postGraphResponse").text("post failed");
+        }
+    }
     function facebookPostGraph() {
-        facebookAPI.requestWithGraphAPI("/me/feed", "POST", {
+        var facebookUserID = "me";  //me = the user currently logged into Facebook
+        document.addEventListener("appMobi.facebook.request.response", postGraphCallback, false);
+        var objParameters = {
             "name": appName,
             "caption": "GRAPH: " + appCaption,
             "link": "http://apps.facebook.com/RyanWin8Template/",
             "picture": "http://dev.appmobi.com/documentation/images/possums.jpg",
             "message": "just a test"
-        }, function (responseObject) {
-            if (responseObject != null && responseObject.success) {
-                $("#postGraphResponse").text(responseObject.data.Message);
-            } else {
-                $("#postGraphResponse").text("post failed");
-            }
-        });
+        };
+        AppMobi.facebook.requestWithGraphAPI(facebookUserID + "/feed", "POST", objParameters);
     }
 
+    function postFeedCallback(e) {
+        console.log("News Feed Event Returned"); 
+        if (e.success == true) {
+            $("#postFeedResponse").text("post successful");
+            document.removeEventListener("appMobi.facebook.dialog.complete", postFeedCallback, false);
+        } else {
+            $("#postFeedResponse").text("post failed");
+        }
+    }
     function facebookPostFeed() {
-        facebookAPI.newsFeedDialog({
+        //This allows you to post to your Facebook Wall 
+        document.addEventListener("appMobi.facebook.dialog.complete", postFeedCallback, false); 
+        var objParameters = {
             "name": appName,
             "caption": "DIALOG: " + appCaption,
             "link": "http://apps.facebook.com/RyanWin8Template/",
             "picture": "http://dev.appmobi.com/documentation/images/possums.jpg",
             "redirect_uri": "http://fb.appmobi.com/facebook/default.aspx"
-        }, function (responseObject) {
-            if (responseObject != null && responseObject.success) {
-                $("#postFeedResponse").text("post successful");
-            } else {
-                $("#postFeedResponse").text("post failed");
-            }
-        });
+        }
+        AppMobi.facebook.showNewsFeedDialog(objParameters);
     }
 
+    function postSendCallback(e) {
+        console.log("News Feed Event Returned");
+        if (e.success == true) {
+            $("#postFeedResponse").text("post successful");
+            document.removeEventListener("appMobi.facebook.dialog.complete", postSendCallback, false);
+        } else {
+            $("#postFeedResponse").text("post failed");
+        }
+    }
     function facebookSendDialog() {
-        facebookAPI.showAppRequestDialog({
+        //This allows you to post to your Facebook Wall 
+        document.addEventListener("appMobi.facebook.dialog.complete", postSendCallback, false);
+        var objParameters = {
             method: 'send',
             name: 'Make Webapps your HTML5 Expertise',
             link: 'http://www.appmobi.com/?page_id%3D119',
             redirect_uri: 'http://fb.appmobi.com/facebook/default.aspx'
-        }, function (responseObject) {
-            if (responseObject != null && responseObject.success) {
-                $("#sendResponse").text("send successful");
-            } else {
-                $("#sendResponse").text("send failed");
-            }
-        });
+        }
+        AppMobi.facebook.showAppRequestDialog(objParameters);
     }
 
     function appRequestCallback(e) {
@@ -232,18 +250,6 @@
         };
 
         AppMobi.facebook.showAppRequestDialog(objParameters);
-
-        /*facebookAPI.showAppRequestDialog({
-            method: 'apprequests',
-            message: 'My Great Win 8 Template Test',
-            redirect_uri: 'http://fb.appmobi.com/facebook/default.aspx'
-        }, function (responseObject) {
-            if (responseObject != null && responseObject.success) {
-                $("#appRequestResponse").text("request successful");
-            } else {
-                $("#appRequestResponse").text("request failed");
-            }
-        });*/
     }
 
     function facebookLogout() {
@@ -277,8 +283,6 @@
         //hide splash screen
         AppMobi.device.hideSplashScreen();
 
-        //initialize the Facebook helper library
-        facebookAPI.init();
         //AppMobi.app = 'ace101.ryanwin8fbtemplate';
         AppMobi.app = '502889586389431';
 
@@ -293,6 +297,7 @@
 <body>
 
 <div id="jQUi">
+    <div><a href="http://www.appmobi.com/amdocs/lib/Article-FacebookIntegration.pdf" target="_blank">Documentation on appMobi Facebook implementation.</a></div>
 	<div title='Welcome' id="main" class="panel" selected="true" data-load="loadedPanel" data-unload="unloadedPanel" data-tab="navbar_home">
 
         <div id="splashscreen" class='demo_area'>
@@ -317,7 +322,8 @@
                 <p>login to facebook</p>
             </div>
 
-            <div class="infoTile" href="#" style="background:#333 !important;"></div>
+            <div class="infoTile" href="#" style="background:#333 !important;">
+            </div>
 
             <div class="infoTile" href="#" style="background:#666 !important;">
                 <p style="text-align:right; color:#999; font-style:italic; font-size:13px; top:12px; right:12px;">You are not logged into Facebook.</p>
