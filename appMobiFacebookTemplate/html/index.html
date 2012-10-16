@@ -90,8 +90,9 @@
         alert(rstr + data);
         alert("data: " + typeof (response.data));
         alert("raw: " + typeof (response.raw));
-
     }
+
+    // Debug code to test and see when events are fired
     /*document.addEventListener('appMobi.facebook.request.response', function (response) { showResponse("GRAPH_API", response) }, false);
     document.addEventListener('appMobi.facebook.dialog.complete', function (response) { showResponse("DIALOG", response) }, false);
     document.addEventListener('appMobi.facebook.dialog.fail', function (response) { showResponse("DIALOG Fail", response) }, false);
@@ -123,7 +124,6 @@
             "picture": "http://dev.appmobi.com/documentation/images/possums.jpg",
             "message": "just a test"
         }, function (responseObject) {
-            debugger;
             if (responseObject != null && responseObject.success) {
                 $("#postGraphResponse").text(responseObject.data.Message);
             } else {
@@ -212,7 +212,8 @@
     function facebookLogout() {
         //AppMobi.facebook.logout();
         facebookAPI.logout(function (message) {
-            alert('in callback handler: ' + message);
+            $("#logged-in").hide();
+            $("#not-logged-in").show();
         });
     }
     //  FACEBOOK Implementation END
@@ -255,9 +256,18 @@
 	<div title='Welcome' id="main" class="panel" selected="true" data-load="loadedPanel" data-unload="unloadedPanel" data-tab="navbar_home">
 
         <div id="splashscreen" class='demo_area'>
-            <div class="infoTile" style="background:#333 !important;">
-                <p style="text-align:right; color:#999; font-style:italic; font-size:13px; top:12px; right:12px;">Loading app ...</p>
+            <div class="navTile lg" onclick="facebookLogin();">
+                <div class="tileIconLogin"></div>
+                <p>loading facebook app ...</p>
             </div>
+
+            <div class="infoTile" href="#" style="background:#333 !important;"></div>
+
+            <div class="infoTile" href="#" style="background:#666 !important;">
+                <p style="text-align:right; color:#999; font-style:italic; font-size:13px; top:12px; right:12px;">You are not logged into Facebook.</p>
+            </div>
+
+            <div class="clear"></div>
         </div>
 
         <div id="not-logged-in" class="demo_area">
@@ -281,32 +291,32 @@
             <!-- tiles -->
             <div class="navTile" onclick="facebookGetUser();">
                 <div class="tileIcon getID"></div>
-                <p>get user <span id="userInfo"></span></p>
+                <p><span id="userInfo">get user </span></p>
             </div>
 
             <div class="navTile" onclick="facebookGetFriends();">
                 <div class="tileIcon getFriends"></div>
-                <p>get friends <span id="friendCount"></span></p>
+                <p><span id="friendCount">get friends </span></p>
             </div>
 
             <div class="navTile" onclick="facebookPostGraph();">
                 <div class="tileIcon post"></div>
-                <p>post to feed (Graph API) <span id="postGraphResponse"></span></p>
+                <p><span id="postGraphResponse">post to feed (Graph API) </span></p>
             </div>
 
             <div class="navTile" onclick="facebookPostFeed();">
                 <div class="tileIcon post"></div>
-                <p>post to feed (Dialog) <span id="postFeedResponse"></span></p>
+                <p><span id="postFeedResponse">post to feed (Dialog) </span></p>
             </div>
 
             <div class="navTile" onclick="facebookSendDialog();">
                 <div class="tileIcon message"></div>
-                <p>send message <span id="sendResponse"></span></p>
+                <p><span id="sendResponse">send message </span></p>
             </div>
 
             <div class="navTile" onclick="facebookAppRequestDialog();">
                 <div class="tileIcon appRequest"></div>
-                <p>app request <span id="appRequestResponse"></span></p>
+                <p><span id="appRequestResponse">app request </span></p>
             </div>
 
             <div class="navTile" onclick="facebookLogout();">
@@ -315,12 +325,6 @@
             </div>
 
             <div class="clear"></div>
-
-            <p id="fbUserInfo" style="display:none;">
-                ProfileName: <input type="text" id="txtProfileName" />
-                FirstName: <input type="text" id="txtFirstName" />
-                LastName: <input type="text" id="txtLastName" />
-            </p>
         </div>
     </div>
 </div>
