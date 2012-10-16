@@ -16,17 +16,17 @@
     <AppXManifest Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-10-16T17:53:53.882</Modified>
+      <Modified>2012-10-16T20:01:38.161</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\bin\Debug\appMobiFacebookTemplate1.exe">
       <PackagePath>appMobiFacebookTemplate1.exe</PackagePath>
-      <Modified>2012-10-16T19:21:22.417</Modified>
+      <Modified>2012-10-16T20:01:37.933</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\bin\Debug\appMobiFacebookTemplate1.pdb">
       <PackagePath>appMobiFacebookTemplate1.pdb</PackagePath>
-      <Modified>2012-10-16T19:21:22.378</Modified>
+      <Modified>2012-10-16T20:01:37.891</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\facebook-windows8-sample\src\packages\Facebook.6.0.22\lib\WinRT\Facebook.dll">
       <PackagePath>Facebook.dll</PackagePath>
@@ -64,10 +64,6 @@
       <PackagePath>html\_appMobi\appmobi_local_bootstrap.js</PackagePath>
       <Modified>2012-10-16T17:50:23.457</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\_appMobi\facebook.js">
-      <PackagePath>html\_appMobi\facebook.js</PackagePath>
-      <Modified>2012-10-16T15:23:32.572</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\_appMobi\jq.mobi.js">
       <PackagePath>html\_appMobi\jq.mobi.js</PackagePath>
       <Modified>2012-09-26T12:49:14.561</Modified>
@@ -78,7 +74,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\index.html">
       <PackagePath>html\index.html</PackagePath>
-      <Modified>2012-10-16T19:42:39.167</Modified>
+      <Modified>2012-10-16T20:06:17.574</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\fb_demo.css">
       <PackagePath>html\fb_demo.css</PackagePath>
@@ -102,7 +98,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2012-10-16T17:53:53.665</Modified>
+      <Modified>2012-10-16T20:01:38.055</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -47,9 +47,6 @@
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\_appMobi\appmobi_local_bootstrap.js">
       <PackagePath>html\_appMobi\appmobi_local_bootstrap.js</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\_appMobi\facebook.js">
-      <PackagePath>html\_appMobi\facebook.js</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\_appMobi\jq.mobi.js">
       <PackagePath>html\_appMobi\jq.mobi.js</PackagePath>
     </AppxPackagedFile>

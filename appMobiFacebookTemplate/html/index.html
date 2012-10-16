@@ -190,7 +190,7 @@
     }
 
     function postFeedCallback(e) {
-        console.log("News Feed Event Returned"); 
+        console.log("Post Event Returned"); 
         if (e.success == true) {
             $("#postFeedResponse").text("post successful");
             document.removeEventListener("appMobi.facebook.dialog.complete", postFeedCallback, false);
@@ -212,12 +212,12 @@
     }
 
     function postSendCallback(e) {
-        console.log("News Feed Event Returned");
+        console.log("Post Event Returned");
         if (e.success == true) {
-            $("#postFeedResponse").text("post successful");
+            $("#sendResponse").text("post successful");
             document.removeEventListener("appMobi.facebook.dialog.complete", postSendCallback, false);
         } else {
-            $("#postFeedResponse").text("post failed");
+            $("#sendResponse").text("post failed");
         }
     }
     function facebookSendDialog() {
@@ -236,6 +236,7 @@
         console.log("Permissions Request Returned"); 
         if (e.success == true) { 
             $("#appRequestResponse").text("request successful");
+            document.removeEventListener("appMobi.facebook.dialog.complete", appRequestCallback, false);
         } else {
             $("#appRequestResponse").text("request failed");
         }
@@ -297,7 +298,7 @@
 <body>
 
 <div id="jQUi">
-    <div><a href="http://www.appmobi.com/amdocs/lib/Article-FacebookIntegration.pdf" target="_blank">Documentation on appMobi Facebook implementation.</a></div>
+    <div><a href="http://www.appmobi.com/amdocs/lib/Article-FacebookIntegration.pdf" target="_blank">Documentation on appMobi Facebook Implementation.</a></div>
 	<div title='Welcome' id="main" class="panel" selected="true" data-load="loadedPanel" data-unload="unloadedPanel" data-tab="navbar_home">
 
         <div id="splashscreen" class='demo_area'>

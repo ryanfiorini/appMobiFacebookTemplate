@@ -130,7 +130,6 @@
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="html\_appMobi\appmobi.js" />
     <Content Include="html\_appMobi\appmobi_local_bootstrap.js" />
-    <Content Include="html\_appMobi\facebook.js" />
     <Content Include="html\index.html" />
     <Content Include="html\_appMobi\jq.mobi.js" />
     <Content Include="html\_appMobi\jq.mobi.min.js" />
