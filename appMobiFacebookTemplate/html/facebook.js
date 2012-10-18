@@ -1,0 +1,158 @@
+var facebookAPI=function(){
+			return{
+			
+				currentAuthToken:'',
+				receivedDataCallback:'',
+				debugMode:1,
+				me:{},
+			
+				init:function(){
+
+					/************************************
+						Make sure we have access to the appMobi library
+					************************************/
+					try{
+						AppMobi.device.appmobiversion;
+						return true;
+					}catch(er){
+						alert('You are missing the appMobi library. Please include the appMobi library to support Push Messages.');
+						return false;
+					}
+
+				},
+				
+				login: function (callbackFunction) {
+					facebookAPI.debug("about to log into facebook");
+					if(callbackFunction!='' && callbackFunction!=undefined && callbackFunction!='undefined' && callbackFunction!=null){
+						facebookAPI.receivedDataCallback=callbackFunction;
+						document.addEventListener("appMobi.facebook.login", function (e) {
+							facebookAPI.currentAuthToken = e.token;
+							try { this.getUser(); } catch(e) {}
+						
+							//make the callback
+							eval(facebookAPI.receivedDataCallback(e));
+						},false); 
+					}
+					AppMobi.facebook.login("email,publish_stream,publish_actions,offline_access");
+				},
+				
+				requestWithGraphAPI: function (path, http, params, callbackFunction) {
+				    try { document.removeEventListener("appMobi.facebook.request.response", facebookAPI.receivedDataCallback, false); } catch (e) {  }
+				    if (callbackFunction != '' && callbackFunction != undefined && callbackFunction != 'undefined' && callbackFunction != null) {
+				        facebookAPI.receivedDataCallback = callbackFunction;
+				        document.addEventListener("appMobi.facebook.request.response", facebookAPI.receivedDataCallback, false);
+				    }
+
+				    AppMobi.facebook.requestWithGraphAPI(path, http, params);
+				},
+
+			    //a generic Facebook graph API -- requires path parameter
+				friends: function (facebookUserID, callbackFunction) {
+				    if (facebookUserID == "") { facebookUserID = "me"; }
+
+				    facebookAPI.debug("about to query the Facebook Graph");
+
+				    try { document.removeEventListener("appMobi.facebook.request.response", facebookAPI.receivedDataCallback,false); } catch (e) { }
+				    if (callbackFunction != '' && callbackFunction != undefined && callbackFunction != 'undefined' && callbackFunction != null) {
+				        facebookAPI.receivedDataCallback = callbackFunction;
+				        document.addEventListener("appMobi.facebook.request.response", facebookAPI.friendsCallback, false);
+				    }
+
+				    AppMobi.facebook.requestWithGraphAPI("/me/friends", "GET", {});
+				},
+				friendsCallback : function (e) {
+				    var objFriends = { "success": false };
+				    if (e.success == true) {
+
+				        facebookAPI.debug(e);
+				        facebookAPI.debug(e.data);
+
+				        objFriends = e.data;
+				        try {
+				            //remove the event handler
+				            document.removeEventListener("appMobi.facebook.request.response", facebookAPI.friendsCallback, false);
+				        } catch (e) { }
+				    } else { objFriends = e; }
+
+				    //make the callback
+				    eval(facebookAPI.receivedDataCallback(objFriends));
+
+				},
+
+				//name,picture,caption,description,link are all possible parameters
+				newsFeedDialog: function (params, callbackFunction) {
+				    try { document.removeEventListener("appMobi.facebook.dialog.complete", facebookAPI.receivedDataCallback, false); } catch (e) { }
+					if(callbackFunction!='' && callbackFunction!=undefined && callbackFunction!='undefined' && callbackFunction!=null){
+						facebookAPI.receivedDataCallback=callbackFunction;
+						document.addEventListener("appMobi.facebook.dialog.complete",facebookAPI.receivedDataCallback,false); 
+					}
+
+					AppMobi.facebook.showNewsFeedDialog(params);
+				},
+				
+				//message, title, filters, exclude_ids, max_recipients, data are all possible parameters
+				showAppRequestDialog: function (params, callbackFunction) {
+				
+				    try { document.removeEventListener("appMobi.facebook.dialog.complete", facebookAPI.receivedDataCallback, false); } catch (e) { }
+					if(callbackFunction!='' && callbackFunction!=undefined && callbackFunction!='undefined' && callbackFunction!=null){
+						facebookAPI.receivedDataCallback=callbackFunction;
+						document.addEventListener("appMobi.facebook.dialog.complete",facebookAPI.receivedDataCallback,false);
+					}
+
+					AppMobi.facebook.showAppRequestDialog(params);
+				},
+				
+				getUser: function (callbackFunction) {
+				    try { document.removeEventListener("appMobi.facebook.request.response", facebookAPI.receivedDataCallback,false); } catch (e) { }
+
+				    if (callbackFunction != '' && callbackFunction != undefined && callbackFunction != 'undefined' && callbackFunction != null) {
+						facebookAPI.receivedDataCallback=callbackFunction;
+					    document.addEventListener("appMobi.facebook.request.response",this.getUserCallback,false);
+					}
+					
+				    AppMobi.facebook.requestWithGraphAPI("/me", "GET", {});
+				},
+				getUserCallback: function (e) {
+				    if (e.success == true) {
+				        this.me = e.data;
+				    } 
+							
+				    try {
+				        //remove the event handler
+				        document.removeEventListener("appMobi.facebook.request.response", facebookAPI.getUserCallback, false);
+				    } catch (e) {}
+							
+				    //make the callback
+				    eval(facebookAPI.receivedDataCallback(this.me));
+						
+				}, 				
+				
+				invite:function(facebookUserID,callbackFunction) {
+				
+				},
+				
+				//gets a picture of a Facebook Graph item based on an ID
+				picture:function(facebookID) {
+					return "http://graph.facebook.com/" + facebookID + "/picture";
+				},
+				
+				debug:function(debugMessage) {
+					if (this.debugMode == 1) {
+						console.log(debugMessage);
+					}
+					if (this.debugMode == 2) {
+						alert(debugMessage);
+					}
+				},
+				
+				logout:function(callbackFunction) {
+					try { document.removeEventListener("appMobi.facebook.logout"); } catch(e) {}
+					if(callbackFunction!='' && callbackFunction!=undefined && callbackFunction!='undefined' && callbackFunction!=null){
+						facebookAPI.receivedDataCallback=callbackFunction;
+						document.addEventListener("appMobi.facebook.logout",facebookAPI.receivedDataCallback,false);
+					}				
+					AppMobi.facebook.logout();
+				}
+			
+			}
+		}();

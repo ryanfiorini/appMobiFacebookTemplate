@@ -1,0 +1,1 @@
+java -jar c:\closure\compiler.jar   --js=../jq.mobi.js --js=jq.ui.js  --js_output_file=jq.ui.min.js

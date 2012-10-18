@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DC614185-F124-4755-B23C-2DC8B9F9A610}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>appMobiFacebookTemplate</RootNamespace>
+    <AssemblyName>appMobiFacebookTemplate1</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>AppMobiWindow8Template_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppMobiPage.xaml.cs">
+      <DependentUpon>AppMobiPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\EnumHandler.cs" />
+    <Compile Include="Helpers\ErrorHandler.cs" />
+    <Compile Include="Helpers\FacebookFriend.cs" />
+    <Compile Include="Helpers\JsonHelper.cs" />
+    <Compile Include="Helpers\ScriptResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\AppMobiView.xaml.cs">
+      <DependentUpon>AppMobiView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="AppMobiWindow8Template_TemporaryKey.pfx" />
+    <None Include="html\examples\knockout\README.md" />
+    <None Include="html\examples\todos\README.md" />
+    <None Include="html\plugins\README.md" />
+    <None Include="html\ui\build.bat" />
+    <None Include="html\ui\build.php" />
+    <None Include="html\ui\minify.bat" />
+    <None Include="html\ui\README.md" />
+    <None Include="html\ui\transitions\build.php" />
+    <None Include="html\ui\transitions\compile.bat" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\SmallLogo.png" />
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="html\amfacebook.html" />
+    <Content Include="html\appmobi.js" />
+    <Content Include="html\appmobi_local_bootstrap.js" />
+    <Content Include="html\defer\index.html" />
+    <Content Include="html\examples\knockout\destroy.png" />
+    <Content Include="html\examples\knockout\images\background.jpg" />
+    <Content Include="html\examples\knockout\images\nav_icons.png" />
+    <Content Include="html\examples\knockout\images\vert_divider.png" />
+    <Content Include="html\examples\knockout\index.html" />
+    <Content Include="html\examples\knockout\jq.ui.css" />
+    <Content Include="html\examples\knockout\knockout-2.0.0.js" />
+    <Content Include="html\examples\knockout\todo.js" />
+    <Content Include="html\examples\knockout\todos.css" />
+    <Content Include="html\examples\spacehook\images\ajax-loader.png" />
+    <Content Include="html\examples\spacehook\images\applab.jpg" />
+    <Content Include="html\examples\spacehook\images\back.png" />
+    <Content Include="html\examples\spacehook\images\badge.png" />
+    <Content Include="html\examples\spacehook\images\close.png" />
+    <Content Include="html\examples\spacehook\images\custom_inputs.png" />
+    <Content Include="html\examples\spacehook\images\listGroup.png" />
+    <Content Include="html\examples\spacehook\images\logo.jpg" />
+    <Content Include="html\examples\spacehook\images\mars.jpg" />
+    <Content Include="html\examples\spacehook\images\menu.png" />
+    <Content Include="html\examples\spacehook\images\Off-On_Slider.png" />
+    <Content Include="html\examples\spacehook\images\stripe_bg.png" />
+    <Content Include="html\examples\spacehook\images\vert_divider.png" />
+    <Content Include="html\examples\spacehook\index.html" />
+    <Content Include="html\examples\spacehook\jq.ui.css" />
+    <Content Include="html\examples\starter\index.html" />
+    <Content Include="html\examples\starter\js\jq.alphatable.js" />
+    <Content Include="html\examples\starter\js\jq.carousel.js" />
+    <Content Include="html\examples\starter\js\jq.drawer.js" />
+    <Content Include="html\examples\starter\js\jq.fx.js" />
+    <Content Include="html\examples\starter\js\jq.template.js" />
+    <Content Include="html\examples\starter\js\jq.ui.min.js" />
+    <Content Include="html\examples\starter\styles\icons.css" />
+    <Content Include="html\examples\starter\styles\jq.actionsheet.css" />
+    <Content Include="html\examples\starter\styles\jq.popup.css" />
+    <Content Include="html\examples\starter\styles\jq.scroller.css" />
+    <Content Include="html\examples\starter\styles\jq.selectBox.css" />
+    <Content Include="html\examples\starter\themes\jq.ui.volcano.css" />
+    <Content Include="html\examples\starter\touch.js" />
+    <Content Include="html\examples\todos\backbone-localstorage.js" />
+    <Content Include="html\examples\todos\backbone.js" />
+    <Content Include="html\examples\todos\destroy.png" />
+    <Content Include="html\examples\todos\index.html" />
+    <Content Include="html\examples\todos\todos.css" />
+    <Content Include="html\examples\todos\todos.js" />
+    <Content Include="html\examples\todos\underscore.js" />
+    <Content Include="html\facebook.js" />
+    <Content Include="html\index.html" />
+    <Content Include="html\jq.mobi.js" />
+    <Content Include="html\jq.mobi.min.js" />
+    <Content Include="html\kitchensink\ajax.html" />
+    <Content Include="html\kitchensink\external.html" />
+    <Content Include="html\kitchensink\icons.css" />
+    <Content Include="html\kitchensink\images\badge.png" />
+    <Content Include="html\kitchensink\images\splash.png" />
+    <Content Include="html\kitchensink\jq.ui.carbon.css" />
+    <Content Include="html\kitchensink\jq.ui.css" />
+    <Content Include="html\kitchensink\jq.ui.eco.css" />
+    <Content Include="html\kitchensink\jq.ui.frosty.css" />
+    <Content Include="html\kitchensink\jq.ui.slate.css" />
+    <Content Include="html\kitchensink\jq.ui.volcano.css" />
+    <Content Include="html\kitchensink\json.html" />
+    <Content Include="html\plugins\css3animate.js" />
+    <Content Include="html\plugins\css\jq.actionsheet.css" />
+    <Content Include="html\plugins\css\jq.popup.css" />
+    <Content Include="html\plugins\css\jq.scroller.css" />
+    <Content Include="html\plugins\jq.actionsheet.js" />
+    <Content Include="html\plugins\jq.alphatable.js" />
+    <Content Include="html\plugins\jq.carousel.js" />
+    <Content Include="html\plugins\jq.css3animate.js" />
+    <Content Include="html\plugins\jq.debug.js" />
+    <Content Include="html\plugins\jq.desktopBrowsers.js" />
+    <Content Include="html\plugins\jq.drawer.js" />
+    <Content Include="html\plugins\jq.fx.js" />
+    <Content Include="html\plugins\jq.ie - Copy.js" />
+    <Content Include="html\plugins\jq.ie.js" />
+    <Content Include="html\plugins\jq.passwordBox.js" />
+    <Content Include="html\plugins\jq.popup.js" />
+    <Content Include="html\plugins\jq.scroller.js" />
+    <Content Include="html\plugins\jq.selectBox.js" />
+    <Content Include="html\plugins\jq.shake.js" />
+    <Content Include="html\plugins\jq.swipe.js" />
+    <Content Include="html\plugins\jq.template.js" />
+    <Content Include="html\plugins\jq.touchEvents.js" />
+    <Content Include="html\plugins\jq.touchLayer.js" />
+    <Content Include="html\plugins\jq.web.min.js" />
+    <Content Include="html\ui\jq.ui.js" />
+    <Content Include="html\ui\jq.ui.min.js" />
+    <Content Include="html\ui\src\jq.ui.js" />
+    <Content Include="html\ui\transitions\all.js" />
+    <Content Include="html\ui\transitions\fade.js" />
+    <Content Include="html\ui\transitions\flip.js" />
+    <Content Include="html\ui\transitions\pop.js" />
+    <Content Include="html\ui\transitions\slide.js" />
+    <Content Include="html\ui\transitions\slideDown.js" />
+    <Content Include="html\ui\transitions\slideUp.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Common\StandardStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AppMobiPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\AppMobiView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Facebook">
+      <HintPath>..\..\facebook-windows8-sample\src\packages\Facebook.6.0.22\lib\WinRT\Facebook.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
