@@ -29,6 +29,7 @@ AppMobi = {
 /**
  * Boolean flag indicating if the AppMobi API is available and initialized.
  */
+AppMobi.iswindows = true;
 AppMobi.isnative = false;
 AppMobi.isxdk = false;
 AppMobi.istest = false;
