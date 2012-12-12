@@ -134,6 +134,8 @@
     <Content Include="html\_appMobi\jq.mobi.js" />
     <Content Include="html\_appMobi\jq.mobi.min.js" />
     <Content Include="html\fb_demo.css" />
+    <Content Include="html\_appMobi\window.js" />
+    <Content Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

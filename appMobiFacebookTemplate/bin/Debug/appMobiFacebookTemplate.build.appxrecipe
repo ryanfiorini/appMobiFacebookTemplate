@@ -53,11 +53,17 @@
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\_appMobi\jq.mobi.min.js">
       <PackagePath>html\_appMobi\jq.mobi.min.js</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\_appMobi\window.js">
+      <PackagePath>html\_appMobi\window.js</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\index.html">
       <PackagePath>html\index.html</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\html\fb_demo.css">
       <PackagePath>html\fb_demo.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\readme.txt">
+      <PackagePath>readme.txt</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Ryan\SkyDrive\Development\window8\appMobiFacebookTemplate\appMobiFacebookTemplate\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
