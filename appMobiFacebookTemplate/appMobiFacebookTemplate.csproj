@@ -127,6 +127,8 @@
     <Content Include="Assets\Logo.png" />
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\splash_landscape.png" />
+    <Content Include="Assets\splash_portrait.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="html\_appMobi\appmobi.js" />
     <Content Include="html\_appMobi\appmobi_local_bootstrap.js" />
